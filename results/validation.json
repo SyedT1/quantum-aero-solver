@@ -1,0 +1,268 @@
+{
+  "full_spatial_exact_bgk": {
+    "config": {
+      "n": 32,
+      "reynolds": 100,
+      "box_length": 6.283185307179586,
+      "vortex_length": 1.0,
+      "vortex_velocity": 1.0,
+      "convection_x": 1.0,
+      "convection_y": 0.0,
+      "density": 1.0,
+      "t_end": 0.1,
+      "mach": 0.05,
+      "snapshots": 6
+    },
+    "convention": "periodic: box_length=2*pi, vortex_length=1",
+    "viscosity": 0.01,
+    "dx": 0.19634954084936207,
+    "dt": 0.0025,
+    "velocity_scale": 0.012732395447351628,
+    "tau": 0.5019453667259329,
+    "omega": 1.9922486913720427,
+    "steps": 40,
+    "runtime_seconds": 0.12621740000031423,
+    "seconds_per_step": 0.0031554350000078555,
+    "population_memory_bytes": 73728,
+    "records": [
+      {
+        "step": 0,
+        "time": 0.0,
+        "relative_l2": 1.5698284949070568e-15,
+        "vortex_relative_l2": 2.7167876035448575e-15,
+        "kinetic_energy": 0.7500000000000002,
+        "exact_kinetic_energy": 0.75,
+        "mass_relative_drift": 0.0,
+        "divergence_l2": 6.942506328844676e-15
+      },
+      {
+        "step": 8,
+        "time": 0.02,
+        "relative_l2": 0.00447418879974372,
+        "vortex_relative_l2": 0.00775158941424871,
+        "kinetic_energy": 0.7484281129149978,
+        "exact_kinetic_energy": 0.749800079978671,
+        "mass_relative_drift": 1.1102230246251565e-15,
+        "divergence_l2": 0.00996659350323307
+      },
+      {
+        "step": 16,
+        "time": 0.04,
+        "relative_l2": 0.005011304573161993,
+        "vortex_relative_l2": 0.008684465847378796,
+        "kinetic_energy": 0.7456780997488262,
+        "exact_kinetic_energy": 0.7496003198294017,
+        "mass_relative_drift": 1.9984014443252818e-15,
+        "divergence_l2": 0.004994359501112226
+      },
+      {
+        "step": 24,
+        "time": 0.06,
+        "relative_l2": 0.00733549075355615,
+        "vortex_relative_l2": 0.012715615172494412,
+        "kinetic_energy": 0.7438073800415097,
+        "exact_kinetic_energy": 0.7494007194243455,
+        "mass_relative_drift": 2.886579864025407e-15,
+        "divergence_l2": 0.008038764457216954
+      },
+      {
+        "step": 32,
+        "time": 0.08,
+        "relative_l2": 0.00721463088108312,
+        "vortex_relative_l2": 0.012509450650329507,
+        "kinetic_energy": 0.7438281053898053,
+        "exact_kinetic_energy": 0.7492012786357582,
+        "mass_relative_drift": 3.6637359812630166e-15,
+        "divergence_l2": 0.008537271478014022
+      },
+      {
+        "step": 40,
+        "time": 0.1,
+        "relative_l2": 0.004605327341298989,
+        "vortex_relative_l2": 0.0079873106787243,
+        "kinetic_energy": 0.745345194766278,
+        "exact_kinetic_energy": 0.7490019973359978,
+        "mass_relative_drift": 4.551914400963142e-15,
+        "divergence_l2": 0.0042138655705028704
+      }
+    ]
+  },
+  "full_spatial_order2_carleman": {
+    "config": {
+      "n": 32,
+      "reynolds": 100,
+      "box_length": 6.283185307179586,
+      "vortex_length": 1.0,
+      "vortex_velocity": 1.0,
+      "convection_x": 1.0,
+      "convection_y": 0.0,
+      "density": 1.0,
+      "t_end": 0.1,
+      "mach": 0.05,
+      "snapshots": 6
+    },
+    "convention": "periodic: box_length=2*pi, vortex_length=1",
+    "viscosity": 0.01,
+    "dx": 0.19634954084936207,
+    "dt": 0.0025,
+    "velocity_scale": 0.012732395447351628,
+    "tau": 0.5019453667259329,
+    "omega": 1.9922486913720427,
+    "steps": 40,
+    "runtime_seconds": 0.21714390000124695,
+    "seconds_per_step": 0.005428597500031174,
+    "population_memory_bytes": 73728,
+    "records": [
+      {
+        "step": 0,
+        "time": 0.0,
+        "relative_l2": 1.5698284949070568e-15,
+        "vortex_relative_l2": 2.7167876035448575e-15,
+        "kinetic_energy": 0.7500000000000002,
+        "exact_kinetic_energy": 0.75,
+        "mass_relative_drift": 0.0,
+        "divergence_l2": 6.942506328844676e-15
+      },
+      {
+        "step": 8,
+        "time": 0.02,
+        "relative_l2": 0.00447333844738523,
+        "vortex_relative_l2": 0.00775011616789379,
+        "kinetic_energy": 0.748428110020616,
+        "exact_kinetic_energy": 0.749800079978671,
+        "mass_relative_drift": 1.1102230246251565e-15,
+        "divergence_l2": 0.009964422195867599
+      },
+      {
+        "step": 16,
+        "time": 0.04,
+        "relative_l2": 0.005012039396363728,
+        "vortex_relative_l2": 0.0086857392776615,
+        "kinetic_energy": 0.745678131710255,
+        "exact_kinetic_energy": 0.7496003198294017,
+        "mass_relative_drift": 2.1094237467877974e-15,
+        "divergence_l2": 0.004998702385213579
+      },
+      {
+        "step": 24,
+        "time": 0.06,
+        "relative_l2": 0.007334178239159581,
+        "vortex_relative_l2": 0.012713340010745073,
+        "kinetic_energy": 0.7438073859502888,
+        "exact_kinetic_energy": 0.7494007194243455,
+        "mass_relative_drift": 3.1086244689504383e-15,
+        "divergence_l2": 0.00803203955144869
+      },
+      {
+        "step": 32,
+        "time": 0.08,
+        "relative_l2": 0.0072157952943664155,
+        "vortex_relative_l2": 0.012511469626870936,
+        "kinetic_energy": 0.7438280968458835,
+        "exact_kinetic_energy": 0.7492012786357582,
+        "mass_relative_drift": 3.9968028886505635e-15,
+        "divergence_l2": 0.008542745989165657
+      },
+      {
+        "step": 40,
+        "time": 0.1,
+        "relative_l2": 0.00460310752253429,
+        "vortex_relative_l2": 0.007983460706548571,
+        "kinetic_energy": 0.745345183405481,
+        "exact_kinetic_energy": 0.7490019973359978,
+        "mass_relative_drift": 5.10702591327572e-15,
+        "divergence_l2": 0.004200032088098512
+      }
+    ]
+  },
+  "final_velocity_relative_l2_carleman_vs_bgk": 1.281199795500172e-05,
+  "final_population_relative_l2_carleman_vs_bgk": 2.2087334777838538e-07,
+  "single_collision_absolute_error": 2.42861286636753e-17,
+  "block_encoding": {
+    "lifted_dimension": 90,
+    "padded_system_dimension": 128,
+    "qubits": 8,
+    "normalization_alpha": 7.510465283803306,
+    "postselection_probability": 0.01773889592544973,
+    "expected_postselection_attempts": 56.37329426829293,
+    "amplitude_amplification_scale": 7.50821511867454,
+    "max_block_error": 6.938893903907228e-17,
+    "max_unitarity_error": 5.10702591327572e-15
+  },
+  "collision_resources": {
+    "omega": 1.2,
+    "logical_qubits": 8,
+    "lifted_dimension": 90,
+    "padded_system_dimension": 128,
+    "normalization_alpha": 7.510465283803306,
+    "basis_gates": [
+      "u",
+      "cx"
+    ],
+    "connectivity": "bidirectional nearest-neighbor ring",
+    "transpiled_depth": 107128,
+    "transpiled_size": 138699,
+    "transpiled_operations": {
+      "cx": 87216,
+      "u": 51483
+    },
+    "transpile_seconds": 5.804071099999419,
+    "scope": "generic dense routed synthesis; includes no rotation synthesis to Clifford+T, error correction, or amplitude amplification"
+  },
+  "streaming_resources": {
+    "logical_qubits": 3,
+    "high_level_depth": 3,
+    "high_level_operations": {
+      "h": 1,
+      "x": 1,
+      "ccx": 1,
+      "cx": 1
+    },
+    "basis_gates": [
+      "u",
+      "cx"
+    ],
+    "transpiled_depth": 10,
+    "transpiled_operations": {
+      "u": 10,
+      "cx": 5
+    },
+    "connectivity": "bidirectional nearest-neighbor ring",
+    "scope": "routed native-basis proxy; no error correction"
+  },
+  "noise": {
+    "shots": 20000,
+    "seed": 7,
+    "one_qubit_error": 0.001,
+    "two_qubit_error": 0.01,
+    "noise_model_applied": true,
+    "basis_gates": [
+      "u",
+      "cx"
+    ],
+    "transpiled_qubits": 3,
+    "transpiled_depth": 11,
+    "transpiled_operations": {
+      "u": 10,
+      "cx": 5,
+      "measure": 3
+    },
+    "hellinger_fidelity": 0.9639999720994916,
+    "total_variation_distance": 0.03599999999999999,
+    "ideal_counts": {
+      "101": 9980,
+      "010": 10020
+    },
+    "noisy_counts": {
+      "110": 204,
+      "010": 9656,
+      "101": 9624,
+      "011": 82,
+      "000": 83,
+      "001": 202,
+      "111": 76,
+      "100": 73
+    }
+  },
+  "scope_warning": "The spatial Carleman run rebuilds f tensor f classically each step. It validates collision physics but is not an end-to-end FTQC speedup claim."
+}
