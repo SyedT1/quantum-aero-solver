@@ -14,6 +14,54 @@ The repository currently contains:
 > [!IMPORTANT]
 > This is an experimental research repository, not yet a submission-grade end-to-end quantum CFD solver. The most complete notebook is `baseline/Airbus_TrackA_v3_Extended.ipynb`, but its composed collision circuit uses a simplified one-direction-qubit-per-axis LCU primitive rather than the full nine-population BGK/Carleman operator.
 
+## Proposal-strengthening deliverables
+
+The eleven notebooks in [`deliverables/`](deliverables/) are the current executed
+evidence path. They use the corrected `quantum_aero` implementation and retain
+their outputs in the notebooks plus machine-readable files under
+[`results/deliverables/`](results/deliverables/).
+
+| Notebook | Experiment |
+|---|---|
+| [`01_coherent_multistep.ipynb`](deliverables/01_coherent_multistep.ipynb) | Global order-2 lifted collision/streaming recurrence without classical re-lifting |
+| [`02_common_state_encoding.ipynb`](deliverables/02_common_state_encoding.ipynb) | Raw-`f` versus square-root-`f` state-encoding compatibility |
+| [`03_fixed_accuracy_convergence.ipynb`](deliverables/03_fixed_accuracy_convergence.ipynb) | Factorial Reynolds/grid/Mach convergence and fixed-error frontier |
+| [`04_spectral_fixed_accuracy_comparator.ipynb`](deliverables/04_spectral_fixed_accuracy_comparator.ipynb) | Independent dealiased Fourier-vorticity RK4 comparator |
+| [`05_postselection_trajectory.ipynb`](deliverables/05_postselection_trajectory.ipynb) | State-dependent block-encoding success along physical trajectories |
+| [`06_structured_collision_ft_estimates.ipynb`](deliverables/06_structured_collision_ft_estimates.ipynb) | Block/Kronecker collision implementation and labeled FT resource proxies |
+| [`07_actual_circuit_stateprep_amplification.ipynb`](deliverables/07_actual_circuit_stateprep_amplification.ipynb) | Actual local collision circuits, raw-`f` shot scaling, and amplitude amplification |
+| [`08_factorized_collision_compilation.ipynb`](deliverables/08_factorized_collision_compilation.ipynb) | Compiled reusable `R` dilation and full factorization audit |
+| [`09_production_physics_local_budget.ipynb`](deliverables/09_production_physics_local_budget.ipynb) | Full-time five-repeat physics sweep under the declared local compute limit |
+| [`10_stability_noise_streaming_compilation.ipynb`](deliverables/10_stability_noise_streaming_compilation.ipynb) | Carleman stability map and topology-aware native streaming compilation |
+| [`11_classical_ft_crossover.ipynb`](deliverables/11_classical_ft_crossover.ipynb) | Repeated spectral comparison and FT crossover/no-go sensitivity ledger |
+
+Rebuild and execute them from clean kernels with:
+
+```bash
+python tools/build_deliverable_notebooks.py
+python tools/build_remaining_notebooks.py
+python tools/run_deliverable_notebooks.py
+```
+
+The default sweeps are intentionally local-rerun sized. Each notebook states
+which larger final-submission sweep remains unmeasured.
+
+### Open Quantum hardware validation
+
+[`hardware/openquantum_streaming.qasm`](hardware/openquantum_streaming.qasm)
+contains the three-qubit controlled periodic-streaming validation circuit.
+Credentials are read from the standard SDK environment variables or prompted
+without echo; they are never stored in the repository. Prepare a quote without
+submitting with:
+
+```bash
+python tools/openquantum_hardware_validation.py --backend iqm:emerald --shots 100
+```
+
+Actual QPU execution additionally requires `--submit`. The utility checks the
+credit balance before creating a job and writes quote/result provenance under
+`results/hardware/`.
+
 ## Repository contents
 
 | Path | Purpose | Status |

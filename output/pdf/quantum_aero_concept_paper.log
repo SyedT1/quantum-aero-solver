@@ -240,18 +240,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (tikz.sty (pgf.sty
-(pgfrcs.sty (pgfutil-common.tex
-\pgfutil@everybye=\toks27
-\pgfutil@tempdima=\dimen178
-\pgfutil@tempdimb=\dimen179
- (pgfutil-common-lists.tex)) (pgfutil-latex.def
-\pgfutil@abb=\box56
-) (pgfrcs.code.tex (pgf.revision.tex)
-Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
-))
-Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
- (pgfcore.sty (graphicx.sty
+) (graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
@@ -262,15 +251,27 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
 )
-\Gin@req@height=\dimen180
-\Gin@req@width=\dimen181
-) (pgfsys.sty (pgfsys.code.tex
+\Gin@req@height=\dimen178
+\Gin@req@width=\dimen179
+) (tikz.sty (pgf.sty (pgfrcs.sty (pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen180
+\pgfutil@tempdimb=\dimen181
+
+(pgfutil-common-lists.tex)) (pgfutil-latex.def
+\pgfutil@abb=\box56
+) (pgfrcs.code.tex
+(pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+ (pgfcore.sty (pgfsys.sty (pgfsys.code.tex
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
- (pgfkeys.code.tex
+
+(pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks28
 \pgfkeys@temptoks=\toks29
-
-(pgfkeysfiltered.code.tex
+ (pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks30
 ))
 \pgf@x=\dimen182
@@ -299,10 +300,10 @@ File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 Driver file for pgf: pgfsys-xetex.def
  (pgfsys-xetex.def
 File: pgfsys-xetex.def 2021/05/15 v3.1.9a (3.1.9a)
- (pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2021/05/15 v3.1.9a (3.1.9a)
 
-(pgfsys-common-pdf.def
+(pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2021/05/15 v3.1.9a (3.1.9a)
+ (pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 )
 \pgfsys@objnum=\count285
@@ -310,26 +311,28 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfsyssoftpath@smallbuffer@items=\count286
 \pgfsyssoftpath@bigbuffer@items=\count287
-) (pgfsysprotocol.code.tex
+)
+(pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
- (pgfmath.code.tex (pgfmathcalc.code.tex
-(pgfmathutil.code.tex) (pgfmathparser.code.tex
+ (pgfmath.code.tex
+(pgfmathcalc.code.tex (pgfmathutil.code.tex) (pgfmathparser.code.tex
 \pgfmath@dimen=\dimen192
 \pgfmath@count=\count288
 \pgfmath@box=\box57
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
 \pgfmath@stack@operation=\toks36
-) (pgfmathfunctions.code.tex
-(pgfmathfunctions.basic.code.tex) (pgfmathfunctions.trigonometric.code.tex)
-(pgfmathfunctions.random.code.tex) (pgfmathfunctions.comparison.code.tex)
-(pgfmathfunctions.base.code.tex) (pgfmathfunctions.round.code.tex)
-(pgfmathfunctions.misc.code.tex) (pgfmathfunctions.integerarithmetics.code.tex)
-)) (pgfmathfloat.code.tex
+)
+(pgfmathfunctions.code.tex (pgfmathfunctions.basic.code.tex)
+(pgfmathfunctions.trigonometric.code.tex) (pgfmathfunctions.random.code.tex)
+(pgfmathfunctions.comparison.code.tex) (pgfmathfunctions.base.code.tex)
+(pgfmathfunctions.round.code.tex) (pgfmathfunctions.misc.code.tex)
+(pgfmathfunctions.integerarithmetics.code.tex))) (pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count289
-)) (pgfint.code.tex) (pgfcorepoints.code.tex
+))
+(pgfint.code.tex) (pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@picminx=\dimen193
 \pgf@picmaxx=\dimen194
@@ -345,86 +348,87 @@ File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@yy=\dimen260
 \pgf@zx=\dimen261
 \pgf@zy=\dimen262
-)
-(pgfcorepathconstruct.code.tex
+) (pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@path@lastx=\dimen263
 \pgf@path@lasty=\dimen264
-) (pgfcorepathusage.code.tex
+)
+(pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@shorten@end@additional=\dimen265
 \pgf@shorten@start@additional=\dimen266
-)
-(pgfcorescopes.code.tex
+) (pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
 \pgf@picture@serial@count=\count290
-) (pgfcoregraphicstate.code.tex
+)
+(pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgflinewidth=\dimen267
-)
-(pgfcoretransformations.code.tex
+) (pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@pt@x=\dimen268
 \pgf@pt@y=\dimen269
 \pgf@pt@temp=\dimen270
-) (pgfcorequick.code.tex
+)
+(pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(pgfcoreobjects.code.tex
+) (pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(pgfcorearrows.code.tex
+(pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowsep=\dimen271
-) (pgfcoreshade.code.tex
+)
+(pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen272
 \pgf@sys@shading@range@num=\count291
 \pgf@shadingcount=\count292
 ) (pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(pgfcoreexternal.code.tex
+ (pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfexternal@startupbox=\box61
-)) (pgfcorelayers.code.tex
+))
+(pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(pgfcoretransparency.code.tex
+) (pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (pgfcorepatterns.code.tex
+)
+(pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfnodeparttextbox=\box62
-) (pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(pgfcomp-version-0-65.sty
+(pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@nodesepstart=\dimen273
 \pgf@nodesepend=\dimen274
 ) (pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 )) (pgffor.sty (pgfkeys.sty (pgfkeys.code.tex)) (pgfmath.sty (pgfmath.code.tex)
-) (pgffor.code.tex
+)
+(pgffor.code.tex
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
-
-(pgfmath.code.tex)
+ (pgfmath.code.tex)
 \pgffor@iter=\dimen275
 \pgffor@skip=\dimen276
 \pgffor@stack=\toks37
 \pgffor@toks=\toks38
 )) (tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
- (pgflibraryplothandlers.code.tex
+
+(pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@plot@mark@count=\count293
 \pgfplotmarksize=\dimen277
@@ -445,44 +449,41 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikznumberofchildren=\count295
 \tikznumberofcurrentchild=\count296
 \tikz@fig@count=\count297
-
-(pgfmodulematrix.code.tex
+ (pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfmatrixcurrentrow=\count298
 \pgfmatrixcurrentcolumn=\count299
 \pgf@matrix@numberofcolumns=\count300
 )
 \tikz@expandcount=\count301
- (tikzlibrarytopaths.code.tex
+
+(tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)))
-(pgflibraryarrows.meta.code.tex
+))) (pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowinset=\dimen286
 \pgfarrowlength=\dimen287
 \pgfarrowwidth=\dimen288
 \pgfarrowlinewidth=\dimen289
-) (tikzlibrarypositioning.code.tex
+)
+(tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(tikzlibraryfit.code.tex
+) (tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(tikzlibraryshapes.geometric.code.tex
+(tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (pgflibraryshapes.geometric.code.tex
+
+(pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))
-(tikzlibrarybackgrounds.code.tex
+)) (tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerbox@background=\box67
 \pgf@layerboxsaved@background=\box68
-) (tikzlibrarymatrix.code.tex
-File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (pgfplots.sty
-(pgfplots.revision.tex)
+)
+(pgfplots.sty (pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (pgfplots.code.tex (pgfplotscore.code.tex
 \t@pgfplots@toka=\toks39
@@ -491,7 +492,6 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \pgfplots@tmpa=\dimen290
 \c@pgfplots@coordindex=\count302
 \c@pgfplots@scanlineindex=\count303
-
 (pgfplotssysgeneric.code.tex)) (pgfplotslibrary.code.tex)
 (pgfplotsoldpgfsupp_loader.code.tex (pgflibraryfpu.code.tex))
 (pgfplotsutil.code.tex (pgfplotsliststructure.code.tex)
@@ -675,7 +675,7 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 52.
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 33.
+Package hyperref Info: Option `colorlinks' set `true' on input line 26.
  (l3backend-xetex.def
 File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 \c__kernel_sys_dvipdfmx_version_int=\count322
@@ -690,31 +690,31 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 (quantum_aero_concept_paper.aux)
 \openout1 = `quantum_aero_concept_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
-3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+6.
  (ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -724,15 +724,15 @@ LaTeX Font Info:    ... okay on input line 53.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(48.36967pt, 500.76852pt, 48.36967pt)
-* v-part:(T,H,B)=(48.36967pt, 748.3075pt, 48.36967pt)
+* h-part:(L,W,R)=(45.5244pt, 506.45908pt, 45.5244pt)
+* v-part:(T,H,B)=(45.5244pt, 753.99805pt, 45.5244pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=500.76852pt
-* \textheight=748.3075pt
-* \oddsidemargin=-23.90031pt
-* \evensidemargin=-23.90031pt
-* \topmargin=-60.90031pt
+* \textwidth=506.45908pt
+* \textheight=753.99805pt
+* \oddsidemargin=-26.74559pt
+* \evensidemargin=-26.74559pt
+* \topmargin=-63.74559pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -750,11 +750,11 @@ LaTeX Font Info:    ... okay on input line 53.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 53.
-Package microtype Info: Applying patch `item' on input line 53.
-Package microtype Info: Applying patch `toc' on input line 53.
-Package microtype Info: Applying patch `eqnum' on input line 53.
-Package microtype Info: Applying patch `footnote' on input line 53.
+LaTeX Info: Redefining \microtypecontext on input line 46.
+Package microtype Info: Applying patch `item' on input line 46.
+Package microtype Info: Applying patch `toc' on input line 46.
+Package microtype Info: Applying patch `eqnum' on input line 46.
+Package microtype Info: Applying patch `footnote' on input line 46.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -767,7 +767,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package hyperref Info: Link coloring ON on input line 53.
+Package hyperref Info: Link coloring ON on input line 46.
 (nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (refcount.sty
@@ -777,49 +777,49 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+LaTeX Info: Redefining \nameref on input line 46.
 
 (quantum_aero_concept_paper.out) (quantum_aero_concept_paper.out)
 \@outlinefile=\write4
 \openout4 = `quantum_aero_concept_paper.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+8.
  (ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+8.
 
 (omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-55.
+48.
  (omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-55.
+48.
  (omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 55.
+(Font)              <12> on input line 48.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 55.
+(Font)              <8> on input line 48.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 55.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
+(Font)              <6> on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
 
  (umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
 
  (umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -827,8 +827,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+8.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -837,149 +837,202 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 64.
+(Font)              <10> on input line 55.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 64.
+(Font)              <7> on input line 55.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 64.
+(Font)              <5> on input line 55.
 
-Underfull \hbox (badness 1490) in paragraph at lines 57--77
-\T1/lmr/m/n/10 rapidly with Reynolds num-ber. This pa-per pro-
+Underfull \hbox (badness 2512) in paragraph at lines 84--87
+[][]\T1/lmr/bx/n/10 Proposed[]\T1/lmr/m/n/10 : scal-able an-a-lytic state prepa
+-ra-tion,
  []
 
 
-Underfull \hbox (badness 1496) in paragraph at lines 78--81
-\T1/lmr/bx/n/10 Keywords: \T1/lmr/m/n/10 quan-tum com-pu-ta-tional fluid dy-nam
--
+Underfull \hbox (badness 1122) in paragraph at lines 90--94
+\T1/lmr/m/n/10 not ev-i-dence of a pro-duc-tion high-Mach ca-pa-bil-ity.
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 78--81
-\T1/lmr/m/n/10 block en-cod-ing, Taylor-Green vor-tex, fault-tolerant
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]|\T1/lmr/m/n/9 Requested
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]|\T1/lmr/m/n/9 Working
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]|\T1/lmr/m/n/9 Integrated raw-$\OML/lmm/m/it/9 f$ \T1/lmr/m/n/9 PREPARE--coll
+ision--
+ []
+
+
+Underfull \hbox (badness 3713) in paragraph at lines 110--110
+\T1/lmr/m/n/9 streaming--measurement cir-cuit, ver-i-fied
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--113
+[]\T1/lmr/bx/n/14.4 Benchmark and Nu-mer-i-cal
  []
 
 [1
 
 
 ]
-Underfull \hbox (badness 1558) in paragraph at lines 236--239
-\T1/lmr/m/n/10 trolled base-line, not a state-of-the-art com-para-tor.
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
+[]\T1/lmr/bx/n/14.4 Preliminary Fea-si-bil-ity Ev-i-
  []
 
+Package pgfplots info on input line 218: Using 'lua backend=false' for axis: ym
+ode=log unsupported (yet).
+Package pgfplots info on input line 257: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+Package pgfplots info on input line 257: Using 'lua backend=false' for axis: ym
+ode=log unsupported (yet).
+Package pgfplots info on input line 297: Using 'lua backend=false' for axis: xm
+ode=log unsupported (yet).
+Package pgfplots info on input line 297: Using 'lua backend=false' for axis: ym
+ode=log unsupported (yet).
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--240
-[]\T1/lmr/bx/n/14.4 Quantum Col-li-sion and
+Underfull \hbox (badness 10000) in paragraph at lines 310--310
+[]\T1/lmr/bx/n/14.4 Advantage Hy-poth-e-sis and
  []
 
 [2]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 346.
-Package pgfplots info on input line 370: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 352: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
-Package pgfplots info on input line 370: Using 'lua backend=false' for axis: ym
-ode=log unsupported (yet).
-Package pgfplots info on input line 386: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 352: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
 
-Underfull \hbox (badness 1502) in paragraph at lines 399--399
-[]\T1/lmr/bx/n/12 Collision, cir-cuit, and noise ev-i-
+Underfull \vbox (badness 1297) has occurred while \output is active []
+
+ [3]
+Underfull \hbox (badness 2591) in paragraph at lines 420--422
+\T1/lmr/m/n/10 sure prox-ies, and se-lected Fourier modes with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-[]|$[] \OT1/lmr/m/n/9 =
+Underfull \hbox (badness 10000) in paragraph at lines 422--424
+\T1/lmr/m/n/10 an-cilla, topol-ogy, Clif-ford+T, T-depth, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-\OT1/lmr/m/n/9 10\OML/lmm/m/it/9 ; \OT1/lmr/m/n/9 100\OML/lmm/m/it/9 ; \OT1/lmr
-/m/n/9 400\OML/lmm/m/it/9 ; \OT1/lmr/m/n/9 1000\OML/lmm/m/it/9 ; \OT1/lmr/m/n/9
- 2000\OML/lmm/m/it/9 ; \OT1/lmr/m/n/9 5000$\T1/lmr/m/n/9 ;
+Underfull \hbox (badness 2608) in paragraph at lines 437--437
+[]\T1/lmr/bx/n/14.4 Validation Ma-trix and Risk
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 Total/vortex $\OML/lmm/m/it/9 L[]$\T1/lmr/m/n/9 , en-ergy,
+Underfull \hbox (badness 1845) in paragraph at lines 458--458
+\T1/lmr/m/n/7 cir-cuit: fi-delity $\OMS/lmsy/m/n/7 ^^U \OT1/lmr/m/n/7 0\OML/lmm
+/m/it/7 :\OT1/lmr/m/n/7 99$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-\T1/lmr/m/n/9 phase, mass, mo-men-tum,
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
+[]|\T1/lmr/m/n/7 Orders 1--3 re-main
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 Grid and Mach con-ver-
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
+\T1/lmr/m/n/7 bounded and phys-i-cal
  []
 
 
-Underfull \hbox (badness 2980) in paragraph at lines 466--466
-\T1/lmr/m/n/9 den-sity and ve-loc-ity per-tur-ba-
+Underfull \hbox (badness 1189) in paragraph at lines 458--458
+[]|\T1/lmr/m/n/7 Complete routed FT cir-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 Population and ob-serv-able
+Underfull \hbox (badness 1648) in paragraph at lines 458--458
+[]|\T1/lmr/m/n/7 Publish crossover bound-ary
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 1, 2, 5, 10, and 50 co-her-ent
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Success col-
  []
 
 
-Underfull \hbox (badness 2884) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 State and ob-serv-able er-ror,
+Underfull \hbox (badness 5064) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Optimize $\OML/lmm/m/it/7 ^^K$\T1/lmr/m/n/7 ; fixed-point
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-[]|\T1/lmr/m/n/9 Logical/physical qubits, $\OML/lmm/m/it/9 T$
+Underfull \hbox (badness 5592) in paragraph at lines 478--478
+[]|$\OML/lmm/m/it/7 Q$ \T1/lmr/m/n/7 load-ing re-mains
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-\T1/lmr/m/n/9 count/depth, block calls,
- []
-
-[3]
-Underfull \hbox (badness 3646) in paragraph at lines 543--543
-[]|\T1/lmr/m/n/9 Likelihood / im-
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Exploit 35 co-ef-fi-cient
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 543--543
-[]|\T1/lmr/m/n/9 Carleman trun-ca-tion fails at
+Underfull \hbox (badness 2277) in paragraph at lines 478--478
+\OML/lmm/m/it/7 R=Q$ \T1/lmr/m/n/7 struc-ture; com-pare
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 543--543
-[]|\T1/lmr/m/n/9 Data ex-trac-tion re-moves the
+Underfull \hbox (badness 4765) in paragraph at lines 478--478
+\T1/lmr/m/n/7 PRE-PARE/SELECT and
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 547--548
-\T1/lmr/m/n/10 The pro-posed sixteen-week pro-gram has six gated
- []
-
-[4]
-Underfull \hbox (badness 1292) in paragraph at lines 606--609
-\T1/lmr/m/n/10 worth, E. Mar-sili, and S. Rol-ston, ``An end-
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Routing
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 606--609
-\T1/lmr/m/n/10 to-end quan-tum al-go-rithm for non-lin-ear fluid
+Underfull \hbox (badness 1383) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Ring depth 987,743
  []
 
 
-Underfull \hbox (badness 2828) in paragraph at lines 606--609
-\T1/lmr/m/n/10 dy-nam-ics with bounded quan-tum ad-van-tage,''
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Mach/refinement study,
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+\T1/lmr/m/n/7 higher-order lift, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+\T1/lmr/m/n/7 pressure-specific ac-cep-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Strong clas-si-
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Spectral method al-
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 478--478
+[]|\T1/lmr/m/n/7 Optimize both base-lines;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--481
+[]\T1/lmr/bx/n/14.4 Reproducibility and Claim
+ []
+
+
+Underfull \vbox (badness 3199) has occurred while \output is active []
+
+ [4]
 [5] (quantum_aero_concept_paper.aux)
 Package rerunfilecheck Info: File `quantum_aero_concept_paper.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: 87B3283CC12376971E04B4E719840216;3167.
+(rerunfilecheck)             Checksum: E9794A4CC65F95C0067E49A923A3612E;2874.
  )
-Output written on quantum_aero_concept_paper.xdv (5 pages, 120040 bytes).
+Output written on quantum_aero_concept_paper.xdv (5 pages, 129916 bytes).

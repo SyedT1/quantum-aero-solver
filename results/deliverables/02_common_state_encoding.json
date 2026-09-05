@@ -1,0 +1,7 @@
+{
+  "chosen_encoding": "raw population amplitudes with an explicit norm/scale register or oracle",
+  "raw_collision_relative_error": 1.4339096366825125e-16,
+  "sqrt_collision_relative_error": 4.914640544334296,
+  "streaming_representation_error": 1.3877787807814457e-17,
+  "conclusion": "streaming supports either representation, but the Carleman collision requires raw-f lifted amplitudes"
+}

@@ -1,0 +1,59 @@
+{
+  "backend": "iqm:emerald",
+  "shots": 100,
+  "preparation_status": "Completed",
+  "preparation_message": null,
+  "balance": {
+    "spark_credits": 0,
+    "full_credits": 0
+  },
+  "quotes": [
+    {
+      "name": "Public Plan",
+      "price": 1,
+      "description": "Free access, public visibility, standard execution",
+      "execution_plan_id": "072f7eb6-574b-4bae-aafa-d3399c4abe7a",
+      "queue_priorities": [
+        {
+          "name": "Standard Queue",
+          "description": "Normal queue position",
+          "price_increase": 0,
+          "queue_priority_id": "0f7b91a3-d1bf-46fb-af9c-55b77fa72bed",
+          "extra": {}
+        },
+        {
+          "name": "Priority Queue",
+          "description": "Move ahead in queue for faster processing",
+          "price_increase": 2,
+          "queue_priority_id": "4ea2b9de-2d20-46d4-b1b5-0b71537a584f",
+          "extra": {}
+        }
+      ],
+      "extra": {}
+    },
+    {
+      "name": "Private Plan",
+      "price": 1,
+      "description": "Hidden execution, priority access, faster processing",
+      "execution_plan_id": "f83fd52f-c691-470f-9521-26b81c4e53bd",
+      "queue_priorities": [
+        {
+          "name": "Standard Queue",
+          "description": "Normal queue position",
+          "price_increase": 0,
+          "queue_priority_id": "0f7b91a3-d1bf-46fb-af9c-55b77fa72bed",
+          "extra": {}
+        },
+        {
+          "name": "Priority Queue",
+          "description": "Move ahead in queue for faster processing",
+          "price_increase": 2,
+          "queue_priority_id": "4ea2b9de-2d20-46d4-b1b5-0b71537a584f",
+          "extra": {}
+        }
+      ],
+      "extra": {}
+    }
+  ],
+  "submitted": false
+}

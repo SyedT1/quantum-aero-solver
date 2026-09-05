@@ -1,0 +1,64 @@
+{
+  "factorized_validation": {
+    "dimension": 90,
+    "nnz": 7138,
+    "density": 0.8812345679012346,
+    "max_row_sparsity": 81,
+    "median_row_sparsity": 81.0,
+    "unique_coefficient_magnitudes": 35,
+    "oracle_matvec_max_error": 8.881784197001252e-16,
+    "factorized_matvec_max_error": 1.4432899320127035e-15,
+    "r_nnz": 81,
+    "q_nnz": 496,
+    "factorized_stored_coefficients": 577,
+    "flat_to_factorized_storage_ratio": 12.370883882149046,
+    "column_index_bits": 7,
+    "row_count_bits": 7
+  },
+  "compiled_R_block": {
+    "qubits": 5,
+    "alpha": 1.6810249675906652,
+    "native_depth": 825,
+    "operations": {
+      "u": 752,
+      "cx": 423
+    }
+  },
+  "dense_reference": {
+    "omega": 1.2,
+    "logical_qubits": 8,
+    "lifted_dimension": 90,
+    "padded_system_dimension": 128,
+    "normalization_alpha": 7.510465283803306,
+    "basis_gates": [
+      "u",
+      "cx"
+    ],
+    "connectivity": "bidirectional nearest-neighbor ring",
+    "transpiled_depth": 107126,
+    "transpiled_size": 138700,
+    "transpiled_operations": {
+      "cx": 87216,
+      "u": 51484
+    },
+    "transpile_seconds": 5.563974138999583,
+    "scope": "generic dense routed synthesis; includes no rotation synthesis to Clifford+T, error correction, or amplitude amplification"
+  },
+  "comparison": [
+    {
+      "implementation": "dense 256x256 dilation",
+      "qubits": 8,
+      "native_depth": 107126,
+      "cx": 87216,
+      "rotation_T_proxy": 5663240
+    },
+    {
+      "implementation": "compiled reusable R dilation",
+      "qubits": 5,
+      "native_depth": 825,
+      "cx": 423,
+      "rotation_T_proxy": 82720
+    }
+  ],
+  "remaining_blocker": "compile Q loading and coherent R/Q composition as PREPARE/SELECT; R-only compilation is not a full collision block encoding"
+}

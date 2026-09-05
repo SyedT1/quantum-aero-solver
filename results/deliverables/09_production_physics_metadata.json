@@ -1,0 +1,14 @@
+{
+  "python": "3.14.7",
+  "platform": "Linux-7.2.3-1-garuda-x86_64-with-glibc2.44",
+  "processor": "",
+  "measured_rows": 42,
+  "unmeasured_grids": [
+    128,
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "reason": "local time/memory budget; existing N=256 t=1 measurement is ~510 s for one repetition"
+}

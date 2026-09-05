@@ -1,0 +1,56 @@
+{
+  "scope": "global order-2 linear-recurrence emulation; no classical re-lift in coherent branch; not a compiled FT circuit",
+  "config": {
+    "n": 4,
+    "reynolds": 100,
+    "box_length": 6.283185307179586,
+    "vortex_length": 1.0,
+    "vortex_velocity": 1.0,
+    "convection_x": 1.0,
+    "convection_y": 0.0,
+    "density": 1.0,
+    "t_end": 0.1,
+    "mach": 0.05,
+    "snapshots": 2
+  },
+  "omega": 1.9990277894635404,
+  "dt": 0.02,
+  "records": [
+    {
+      "step": 1,
+      "coherent_vs_bgk": 1.85118376696678e-16,
+      "relift_vs_bgk": 1.8163029691499027e-16,
+      "coherent_vs_relift": 1.4046540115623967e-16,
+      "lift_consistency_defect": 0.0015233724032402615,
+      "first_level_norm": 1.9997570460031568,
+      "second_level_norm": 4.00291708338467
+    },
+    {
+      "step": 2,
+      "coherent_vs_bgk": 1.9489539051966796e-05,
+      "relift_vs_bgk": 1.6593886982555505e-08,
+      "coherent_vs_relift": 1.9489463754900807e-05,
+      "lift_consistency_defect": 0.0005941279904275854,
+      "first_level_norm": 2.0000688389021732,
+      "second_level_norm": 3.999127242798701
+    },
+    {
+      "step": 5,
+      "coherent_vs_bgk": 3.944142984647742e-05,
+      "relift_vs_bgk": 4.0694358176750724e-08,
+      "coherent_vs_relift": 3.943895987333028e-05,
+      "lift_consistency_defect": 0.0013501160347648283,
+      "first_level_norm": 1.9999829827462523,
+      "second_level_norm": 4.003015229018676
+    },
+    {
+      "step": 10,
+      "coherent_vs_bgk": 0.00012155498716760896,
+      "relift_vs_bgk": 2.787447836517577e-07,
+      "coherent_vs_relift": 0.00012156599484931769,
+      "lift_consistency_defect": 0.001714228683468322,
+      "first_level_norm": 2.0000773327424644,
+      "second_level_norm": 3.999136097224959
+    }
+  ]
+}

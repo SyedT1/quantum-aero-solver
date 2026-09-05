@@ -1,15 +1,9 @@
 \documentclass[10pt,twocolumn]{article}
-
-\usepackage[a4paper,margin=17mm,columnsep=7mm]{geometry}
+\usepackage[a4paper,margin=16mm,columnsep=7mm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage{amsmath,amssymb,bm}
-\usepackage{booktabs,tabularx,array}
-\usepackage{enumitem}
-\usepackage{xcolor}
+\usepackage{lmodern,microtype,amsmath,amssymb,bm,booktabs,tabularx,array,enumitem,xcolor,graphicx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,backgrounds,matrix}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,shapes.geometric,backgrounds}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{hyperref}
@@ -19,603 +13,521 @@
 \definecolor{airbuscyan}{HTML}{00A6C8}
 \definecolor{navy}{HTML}{071D3B}
 \definecolor{softblue}{HTML}{EAF5F8}
-\definecolor{softgray}{HTML}{F2F5F7}
 \definecolor{resultgreen}{HTML}{15866D}
+\definecolor{softgreen}{HTML}{E8F5F0}
 \definecolor{warningorange}{HTML}{D98716}
+\definecolor{softorange}{HTML}{FFF3DF}
+\definecolor{riskred}{HTML}{B94343}
 
 \hypersetup{
-  colorlinks=true,
-  linkcolor=airbusblue,
-  citecolor=airbusblue,
-  urlcolor=airbusblue,
+  colorlinks=true,linkcolor=airbusblue,citecolor=airbusblue,urlcolor=airbusblue,
   pdftitle={A Block-Encoded Carleman-Lattice Boltzmann Solver for the Convecting Taylor-Green Vortex},
-  pdfauthor={Syed Mohaiminul Hoque}
-}
-
-\setlist[itemize]{leftmargin=*,nosep}
+  pdfsubject={Concept Proposal and Preliminary Feasibility Results},
+  pdfauthor={Syed Mohaiminul Hoque}}
+\setlist[itemize]{leftmargin=*,itemsep=1pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=*,itemsep=1pt,topsep=2pt}
 \setlength{\parindent}{1em}
-\setlength{\parskip}{0.15em}
-\renewcommand{\arraystretch}{1.12}
-
+\setlength{\parskip}{0.12em}
+\renewcommand{\arraystretch}{1.08}
 \newcommand{\Rey}{\mathrm{Re}}
-\newcommand{\TTS}{\mathrm{TTS}}
 \newcommand{\vect}[1]{\bm{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\measured}{\textcolor{resultgreen}{\textbf{Measured}}}
+\newcommand{\proposed}{\textcolor{airbusblue}{\textbf{Proposed}}}
+\newcommand{\gate}{\textcolor{warningorange}{\textbf{Gate}}}
 
-\title{\vspace{-1.1em}\textbf{A Block-Encoded Carleman-Lattice Boltzmann Solver\\
-for the Convecting Taylor-Green Vortex}\\[-0.1em]
-\large Concept Proposal for the Airbus Global Quantum + AI Challenge 2026}
-\author{Syed Mohaiminul Hoque\\
-\normalsize Team Quantum Aero Solver\\
-\normalsize \email{syedmuhaimintahsin@gmail.com}}
-\date{4 September 2026}
+\title{\vspace{-1.25em}\textbf{A Block-Encoded Carleman--Lattice Boltzmann Solver\\
+for the Convecting Taylor--Green Vortex}\\[-0.05em]
+\large Concept Proposal and Preliminary Feasibility Results for the\\Airbus Global Quantum + AI Challenge 2026}
+\author{Syed Mohaiminul Hoque\\\normalsize Team Quantum Aero Solver\\
+\normalsize \email{syedmuhaimintahsin@gmail.com}\\
+\small\url{https://github.com/SyedT1/quantum-aero-solver}}
+\date{6 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Accurate aerodynamic prediction requires solving nonlinear, dissipative partial
-differential equations at resolutions whose computational and memory costs grow
-rapidly with Reynolds number. This paper proposes a fault-tolerant quantum
-algorithm for the two-dimensional convecting Taylor-Green vortex based on a
-D2Q9 lattice Boltzmann discretization, Carleman linearization of the nonlinear
-BGK collision, unitary block encoding of the resulting non-unitary map, and
-reversible periodic streaming. The benchmark is separated into a periodic box
-length $L_{\mathrm{box}}=2\pi$ and vortex scale $L_c=1$ to remove an ambiguity
-in the challenge statement. Preliminary implementation validates a local
-90-dimensional lifted collision through an eight-qubit unitary dilation with
-maximum block error $6.94\times10^{-17}$ and maximum unitarity error
-$5.11\times10^{-15}$. A full spatial collision-streaming comparison gives
-velocity relative $L_2$ error $1.28\times10^{-5}$ between the Carleman and exact
-BGK paths for a small test. The measured dense routed synthesis is expensive,
-and the raw post-selection probability is only $1.77\%$; these results define
-the optimization target rather than establish advantage. We therefore specify
-an end-to-end, fixed-accuracy protocol that includes preparation, amplification,
-routing, fault tolerance, and observable extraction. The target claim is a
-bounded advantage for selected observables, not full-field recovery.
+We propose an end-to-end fault-tolerant quantum algorithm for the two-dimensional
+convecting Taylor--Green vortex based on D2Q9 lattice Boltzmann dynamics,
+order-two Carleman linearization, structured block encoding, reversible
+streaming, amplitude amplification, and direct observable estimation. The
+objective is not to infer advantage from qubit count, but to demonstrate---or
+falsify---lower time-to-solution or memory at matched $(\Rey,t,\epsilon)$ after
+all preparation, timestepping, routing, fault-tolerance, and measurement costs.
+Eleven executed notebooks establish a reproducible starting point: an actual
+local eight-qubit dilation has conditional fidelity above $1-10^{-12}$ through
+ten applications; exact amplification raises one-step success from $0.632\%$
+to $99.66\%$ using 19 block calls; factorization reduces stored collision
+coefficients by $12.37\times$; and physics sweeps cover $\Rey=10$--5000. The
+same evidence exposes the decisive risks: unamplified ten-step success is
+$1.01\times10^{-22}$, ring-routed streaming reaches depth 987,743 at $N=128$,
+and a spectral baseline is faster and roughly seven orders more accurate than
+the current Python BGK solver. The proposed programme therefore focuses on the
+missing position-aware $Q$ oracle, integrated collision--streaming circuit,
+direct energy/mode extraction, and fixed-accuracy crossover test. No quantum
+advantage is claimed from the preliminary results; the deliverable is a
+working solver and an auditable advantage or no-go determination.
 \end{abstract}
-
 \noindent\textbf{Keywords:} quantum computational fluid dynamics, lattice
-Boltzmann method, Carleman linearization, block encoding, Taylor-Green vortex,
+Boltzmann method, Carleman linearization, block encoding, Taylor--Green vortex,
 fault-tolerant quantum computing.
 
-\section{Motivation and Objective}
-Airbus identifies predictive aerodynamics as a high-value computational
-capability because extreme operating conditions remain costly to reproduce in
-physical tests and expensive to resolve numerically \cite{airbus2026}. The
-challenge asks participants to simulate the convecting Taylor-Green vortex and
-quantify how runtime, memory or qubits, and numerical error scale with Reynolds
-number. The exact solution makes this problem unusually suitable for separating
-physical fidelity from circuit executability.
-
-The proposed method follows the fault-tolerant quantum computing (FTQC) and
-lattice Boltzmann route. Its research question is:
-
-\begin{quote}
-Can a structured block encoding of collision, combined with logarithmic-size
-position registers and unitary streaming, reduce time-to-solution or memory for
-selected flow observables at a fixed physical error as $\Rey$ increases?
-\end{quote}
-
-This is intentionally narrower than claiming exponential advantage for an
-entire velocity field. Recent end-to-end analysis shows that Carleman
-convergence, time stepping, conditioning, and data extraction can eliminate
-nominal quantum speedups \cite{jennings2025}. The proposed experiments measure
-each of these costs and include a no-go decision if no crossover survives.
-
-\section{Benchmark Definition}
-\subsection{Governing equations}
-For velocity $\vect{u}=(u,v)$, pressure $p$, density $\rho$, and kinematic
-viscosity $\nu$, the two-dimensional incompressible Navier-Stokes equations are
-\begin{align}
-  \nabla\cdot\vect{u} &= 0, \label{eq:continuity}\\
-  \partial_t\vect{u}+(\vect{u}\cdot\nabla)\vect{u}
-  &= -\rho^{-1}\nabla p+\nu\nabla^2\vect{u}. \label{eq:momentum}
-\end{align}
-The exact convecting Taylor-Green solution is
-\begin{align}
-u(x,y,t) &= U_c + V_0\sin\xi\cos\eta\,A(t),\label{eq:exactu}\\
-v(x,y,t) &= V_c - V_0\cos\xi\sin\eta\,A(t),\label{eq:exactv}\\
-p(x,y,t) &= p_0+\frac{\rho V_0^2}{4}
- \left[\cos(2\xi)+\cos(2\eta)\right]A(t)^2,\label{eq:exactp}
-\end{align}
-where
-\begin{align}
-\xi&=\frac{x-U_ct}{L_c}, &
-\eta&=\frac{y-V_ct}{L_c},\nonumber\\
-A(t)&=\exp\left(-\frac{2\nu t}{L_c^2}\right).&&
-\end{align}
-We use
-\begin{align}
-L_{\mathrm{box}}&=2\pi, & L_c&=1, & V_0=U_c=\rho&=1,\nonumber\\
-V_c&=p_0=0, & \nu&=\frac{V_0L_c}{\Rey}.&&
-\end{align}
-This distinction is essential: using $L=2\pi$ simultaneously as the domain
-length and trigonometric scale makes the stated field non-periodic. The final
-submission will record the convention in every dataset and request organizer
-confirmation.
-
-\subsection{Accuracy metrics}
-The primary error is the relative velocity-field norm
-\begin{equation}
-\epsilon_{L_2}(t)=
-\frac{\left\|\vect{u}_{\mathrm{sim}}(t)-\vect{u}_{\mathrm{exact}}(t)\right\|_2}
-{\left\|\vect{u}_{\mathrm{exact}}(t)\right\|_2}.
-\label{eq:l2}
-\end{equation}
-Because the uniform streamwise component can dilute the vortex error, we also
-report the same norm after subtracting $(U_c,V_c)$. The kinetic energy is
-\begin{equation}
-K(t)=\frac{1}{2}\left\langle u^2+v^2\right\rangle.
-\label{eq:ke}
-\end{equation}
-Mass drift, momentum drift, and $\|\nabla\cdot\vect{u}\|_2$ complete the
-physical diagnostics.
-
-\begin{figure*}[t]
-\centering
-\begin{tikzpicture}[
-  node distance=5mm and 4mm,
-  stage/.style={draw=airbusblue, rounded corners=2pt, very thick,
-    minimum width=29mm, minimum height=15mm, align=center, fill=softblue,
-    font=\small},
-  quantum/.style={stage,draw=airbuscyan,fill=airbuscyan!8},
-  check/.style={stage,draw=resultgreen,fill=resultgreen!8},
-  arrow/.style={-{Latex[length=2.2mm]},thick,draw=navy},
-  loop/.style={-{Latex[length=2.2mm]},thick,dashed,draw=warningorange}
-]
-\node[stage] (init) {Analytic TGV\\initial condition};
-\node[quantum,right=of init] (encode) {Amplitude / basis\\state preparation};
-\node[quantum,right=of encode] (collide) {Carleman collision\\block encoding};
-\node[quantum,right=of collide] (stream) {Direction-controlled\\unitary streaming};
-\node[check,right=of stream] (measure) {Observable\\extraction};
-\draw[arrow] (init) -- (encode);
-\draw[arrow] (encode) -- (collide);
-\draw[arrow] (collide) -- (stream);
-\draw[arrow] (stream) -- (measure);
-\draw[loop] ($(stream.south)+(0,-1mm)$) to[out=-90,in=-90]
- node[below,font=\scriptsize] {$n_t$ coherent steps} ($(collide.south)+(0,-1mm)$);
-\node[draw=warningorange,rounded corners,fit=(encode)(collide)(stream),
- inner sep=3mm,label={[font=\scriptsize,text=warningorange]above:FTQC evolution under test}] {};
-\end{tikzpicture}
-\caption{Proposed end-to-end method. The claimed quantum path must keep the
-lifted state coherent between collision and streaming; classical re-lifting is
-allowed only in validation experiments, not in the advantage claim.}
-\label{fig:pipeline}
-\end{figure*}
-
-\section{Classical D2Q9 Foundation}
-The classical and quantum paths use the same D2Q9 finite-velocity model so that
-the initial comparison does not mix algorithmic and discretization errors. The
-velocities and weights are
-\begin{align}
-\vect{e}_i &\in \{(0,0),(\pm1,0),(0,\pm1),(\pm1,\pm1)\},\\
-w_0&=\frac49,\qquad w_{1:4}=\frac19,\qquad w_{5:8}=\frac1{36},
-\qquad c_s^2=\frac13.
-\end{align}
-Macroscopic fields are reconstructed by
-\begin{equation}
-\rho=\sum_{i=0}^{8}f_i,\qquad
-\rho\vect{u}=\sum_{i=0}^{8}f_i\vect{e}_i.
-\end{equation}
-The second-order equilibrium is
-\begin{equation}
-f_i^{\mathrm{eq}}=w_i\rho\left[
-1+\frac{\vect{e}_i\cdot\vect{u}}{c_s^2}
-+\frac{(\vect{e}_i\cdot\vect{u})^2}{2c_s^4}
--\frac{\vect{u}\cdot\vect{u}}{2c_s^2}\right],
-\label{eq:feq}
-\end{equation}
-followed by BGK collision and periodic streaming,
-\begin{align}
-f_i^{\star}(\vect{x},t)&=f_i(\vect{x},t)
--\omega\left(f_i-f_i^{\mathrm{eq}}\right),\label{eq:bgk}\\
-f_i(\vect{x}+\vect{e}_i,t+\Delta t)&=f_i^{\star}(\vect{x},t),
-\qquad \omega=\tau^{-1}.\label{eq:stream}
-\end{align}
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[scale=0.78]
-  \draw[step=1cm,gray!25,very thin] (-1.4,-1.4) grid (1.4,1.4);
-  \foreach \x/\y/\lab in {
-    0/0/0,1/0/1,0/1/2,-1/0/3,0/-1/4,
-    1/1/5,-1/1/6,-1/-1/7,1/-1/8}
-  {
-    \draw[-{Latex[length=2mm]},very thick,airbusblue] (0,0) -- (\x,\y);
-    \fill[airbuscyan] (\x,\y) circle (2pt);
-    \node[font=\scriptsize,anchor=south west] at (\x,\y) {$e_{\lab}$};
-  }
-  \fill[navy] (0,0) circle (2.4pt);
-\end{tikzpicture}
-\caption{D2Q9 velocity stencil used by both solver paths. Streaming is a
-permutation and is therefore naturally unitary on a periodic grid.}
-\label{fig:d2q9}
-\end{figure}
-
-The in-repository BGK implementation is a controlled baseline, not a
-state-of-the-art comparator. A Fourier pseudo-spectral or high-order
-finite-volume solver will be added before final advantage assessment.
-
-\section{Quantum Collision and Streaming}
-\subsection{Carleman linearization}
-Near reference density $\rho_0$, \,\cref{eq:feq} is expressed as
-\begin{equation}
-\vect{f}^{\mathrm{eq}}\approx L\vect{f}
-+Q:(\vect{f}\otimes\vect{f}),
-\end{equation}
-where $L\in\mathbb{R}^{9\times9}$ and
-$Q\in\mathbb{R}^{9\times9\times9}$. Define
-\begin{equation}
-\vect{z}=\begin{bmatrix}\vect{f}\\
-\vect{f}\otimes\vect{f}\end{bmatrix}\in\mathbb{R}^{90},
-\qquad
-R=(1-\omega)I+\omega L.
-\end{equation}
-At order two, the collision is approximated by the linear recurrence
-\begin{equation}
-\vect{z}^{\star}=M\vect{z},\qquad
-M=
-\begin{bmatrix}
-R & \omega Q\\
-0 & R\otimes R
-\end{bmatrix}.
-\label{eq:carleman}
-\end{equation}
-Here $Q$ in the upper-right block denotes the matricized contraction from 81 to
-9 components. General convergence of Carleman truncation is conditional;
-dissipative quadratic systems require explicit parameter bounds and cannot be
-assumed efficient for arbitrary flow regimes \cite{liu2021}.
-
-\subsection{Unitary dilation and success probability}
-Let $\alpha\geq\|M\|_2$ and $A=M/\alpha$. Padding the system dimension from 90
-to 128 permits an eight-qubit unitary dilation
-\begin{equation}
-U_A=
-\begin{bmatrix}
-A & \sqrt{I-AA^{\dagger}}\\
-\sqrt{I-A^{\dagger}A} & -A^{\dagger}
-\end{bmatrix}.
-\label{eq:dilation}
-\end{equation}
-Post-selecting the signal ancilla in $\lvert 0\rangle$ applies $A$ to the system
-register. The measured success probability for the current test state is
-\begin{equation}
-p_{\mathrm{succ}}=
-\frac{\|M\vect{z}\|_2^2}{\alpha^2\|\vect{z}\|_2^2}=0.01774,
-\end{equation}
-which implies about $1/p_{\mathrm{succ}}=56.4$ raw attempts or an amplitude
-amplification scale $1/\sqrt{p_{\mathrm{succ}}}=7.51$. These factors are part of
-the resource model. QSVT and oblivious amplitude amplification provide the
-mathematical framework for replacing dense dilation with structured block
-encodings \cite{gilyen2019}.
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[
-  block/.style={draw=navy,thick,minimum width=15mm,minimum height=12mm,
-    align=center,font=\scriptsize},
-  label/.style={font=\scriptsize,align=center}
-]
-\matrix[matrix of nodes,nodes={block},row sep=-\pgflinewidth,column sep=-\pgflinewidth] (m) {
-  |[fill=airbuscyan!18]| $R$ & |[fill=airbusblue!14]| $\omega Q$ \\
-  |[fill=softgray]| $0$ & |[fill=resultgreen!14]| $R\otimes R$ \\
-};
-\node[label,above=1.5mm of m-1-1] {$9$};
-\node[label,above=1.5mm of m-1-2] {$81$};
-\node[label,left=1.5mm of m-1-1] {$9$};
-\node[label,left=1.5mm of m-2-1] {$81$};
-\draw[-{Latex[length=2mm]},warningorange,thick]
-  ($(m.east)+(3mm,0)$) -- ++(11mm,0)
-  node[right,label] {pad to 128\\and dilate};
-\end{tikzpicture}
-\caption{Structure of the 90-dimensional local order-two Carleman collision.
-The production objective is to compile this structure rather than synthesize a
-generic dense $256\times256$ unitary.}
-\label{fig:carlemanblock}
-\end{figure}
-
-\subsection{Coherent streaming and extraction}
-For a periodic $N_x\times N_y$ grid, the position registers require
-$\lceil\log_2N_x\rceil+\lceil\log_2N_y\rceil$ qubits. Direction-controlled
-modular addition implements \,\cref{eq:stream} as a permutation. The primary
-outputs are $K(t)$ and selected Fourier coefficients. Full-field tomography is
-not included in the claimed advantage route because its output cost grows with
-the number of degrees of freedom.
-
-The current spatial validator reconstructs
-$\vect{f}\otimes\vect{f}$ classically between timesteps. This is useful for
-physics validation but is not an end-to-end quantum algorithm. The central
-research milestone is a coherent local/global lift or an alternative
-incompressible-LBM construction that preserves a bounded advantage
-\cite{jennings2025,zamora2026}.
-
-\section{Preliminary Results}
-\subsection{Corrected classical datasets}
-The legacy datasets used the inconsistent length convention and produced
-approximately 25--33\% relative error. They were regenerated with
-$L_{\mathrm{box}}=2\pi$, $L_c=1$, and $t=1$. Final errors now lie between
-$4.43\times10^{-3}$ and $4.63\times10^{-3}$ for the configured scaling points.
+\section{Challenge Response and Proposed Outcome}
+Airbus seeks a working solver for the convecting Taylor--Green vortex, scaling
+with Reynolds number, and comparison against state-of-the-art classical
+methods \cite{airbus2026}. Our response is a fault-tolerant LBM concept with a
+strict evidence boundary:
+\begin{itemize}
+\item \measured: analytic benchmark, D2Q9 solver, local Carleman dilation,
+amplification, raw-$f$ sampling, routed streaming circuits, and spectral
+comparison.
+\item \proposed: scalable analytic state preparation, coherent $R/Q$
+collision, global position-controlled streaming, direct observable estimation,
+and integrated multi-step execution.
+\item \gate: advantage is accepted only if the complete quantum ledger beats
+an optimized classical solver at the same physical error and observable.
+\end{itemize}
+The convecting vortex is the required verification case, not evidence of a
+production high-Mach capability. D2Q9 BGK is used here in its weakly
+compressible regime; extension to compressible lattices and extreme flight
+conditions is a follow-on only after the solver passes the present gates.
 
 \begin{table}[t]
 \centering
-\caption{Measured corrected classical scaling points at $t=1$. The
-$\Rey=5000$ row is an under-resolved pilot, not a production result.}
-\label{tab:sweep}
+\caption{Traceability to the requested outcomes.}
+\label{tab:alignment}
 \small
-\begin{tabular}{rrrrr}
-\toprule
-$\Rey$ & $N$ & Steps & Runtime (s) & $\epsilon_{L_2}$\\
-\midrule
-10   & 32  & 395  & 0.86   & 0.004635\\
-100  & 64  & 789  & 4.53   & 0.004432\\
-400  & 128 & 1578 & 51.99  & 0.004497\\
-1000 & 256 & 3156 & 509.83 & 0.004526\\
-5000 & 128 & 1578 & 65.50  & 0.004533$^{\ast}$\\
-\bottomrule
-\multicolumn{5}{l}{\scriptsize $^{\ast}$Measured pilot; grid convergence not established.}
-\end{tabular}
+\begin{tabularx}{\columnwidth}{@{}p{0.24\columnwidth}X@{}}
+\toprule Requested outcome&Proposed evidence at completion\\\midrule
+Working solver&Integrated raw-$f$ PREPARE--collision--streaming--measurement
+circuit, verified against the exact vortex.\\
+Scaling&Time, memory, and error versus $\Rey=10$--5000, $N=32$--2048,
+$t\leq1$, and target precision.\\
+Comparison&Optimized spectral and high-order finite-volume CPU/GPU baselines
+at matched error, with confidence intervals.\\
+Advantage&End-to-end crossover, or an explicit no-go boundary, under three
+fault-tolerant hardware scenarios.\\\bottomrule
+\end{tabularx}
 \end{table}
 
+\section{Benchmark and Numerical Model}
+For velocity $\vect u=(u,v)$, density $\rho$, pressure $p$, and viscosity
+$\nu$, the incompressible equations are
+\begin{align}
+\nabla\!\cdot\vect u&=0,\\
+\partial_t\vect u+(\vect u\!\cdot\!\nabla)\vect u
+&=-\rho^{-1}\nabla p+\nu\nabla^2\vect u.
+\end{align}
+With $\xi=(x-U_ct)/L_c$, $\eta=(y-V_ct)/L_c$, and
+$A(t)=\exp(-2\nu t/L_c^2)$, the exact convecting vortex is
+\begin{align}
+u&=U_c+V_0\sin\xi\cos\eta\,A(t),\\
+v&=V_c-V_0\cos\xi\sin\eta\,A(t),\\
+p&=p_0+\frac{\rho V_0^2}{4}[\cos(2\xi)+\cos(2\eta)]A(t)^2.
+\end{align}
+We set $L_{\rm box}=2\pi$, $L_c=1$, $V_0=U_c=\rho=1$,
+$V_c=p_0=0$, and $\nu=1/\Rey$. Separating box and vortex scales preserves
+periodicity.
+
+The D2Q9 BGK update is
+\begin{align}
+\rho&=\sum_i f_i,&\rho\vect u&=\sum_i f_i\vect e_i,\\
+f_i^{\star}&=(1-\omega)f_i+\omega f_i^{\rm eq},\\
+f_i(\vect x+\vect e_i,t+\Delta t)&=f_i^\star(\vect x,t),
+\end{align}
+where $f_i^{\rm eq}$ is the standard second-order equilibrium
+\cite{qian1992}. Tests cover $\Rey=10,100,400,1000,2000,5000$, Mach
+$0.1$--$0.0125$, and periodic grids. Velocity, pressure, kinetic energy,
+momentum drift, Fourier phase/amplitude, positivity, and convergence order are
+the fixed validation observables.
+
+\section{Proposed Quantum Solver}
+Near reference density $\rho_0$, write
+$\vect f^{\rm eq}\simeq L\vect f+Q:(\vect f\otimes\vect f)$. With
+$R=(1-\omega)I+\omega L$ and
+$\vect z=[\vect f;\vect f\otimes\vect f]\in\mathbb R^{90}$,
+\begin{equation}
+\vect z^\star=M\vect z,\qquad
+M=\begin{bmatrix}R&\omega Q\\0&R\otimes R\end{bmatrix}.
+\label{eq:carleman}
+\end{equation}
+For $\alpha\geq\lVert M\rVert_2$, a unitary dilation block-encodes $M/\alpha$.
+The physical populations use raw signed amplitudes, not the legacy $\sqrt f$
+encoding; raw-$f$ reproduced the local collision to $1.43\times10^{-16}$,
+whereas $\sqrt f$ incurred relative error 4.91.
+
 \begin{figure*}[t]
+\centering
+\resizebox{0.98\textwidth}{!}{%
+\begin{tikzpicture}[
+box/.style={rounded corners=2pt,thick,minimum width=25mm,minimum height=13mm,
+align=center,font=\small},
+proto/.style={box,draw=warningorange,fill=softorange},
+plan/.style={box,draw=airbusblue,fill=softblue},
+done/.style={box,draw=resultgreen,fill=softgreen},
+arr/.style={-{Latex[length=2mm]},thick,draw=navy}]
+\node[proto] (prep) {analytic/raw-$f$\\PREPARE};
+\node[proto,right=4mm of prep] (col) {$R/Q$ Carleman\\block encoding};
+\node[done,right=4mm of col] (aa) {oblivious\\amplification};
+\node[proto,right=4mm of aa] (str) {position-controlled\\modular streaming};
+\node[plan,right=4mm of str] (obs) {energy/mode\\estimation};
+\node[done,right=4mm of obs] (val) {exact-solution\\validation};
+\foreach \a/\b in {prep/col,col/aa,aa/str,str/obs,obs/val}{\draw[arr] (\a)--(\b);}
+\node[font=\scriptsize,text=warningorange,below=1mm of prep]{prototype};
+\node[font=\scriptsize,text=warningorange,below=1mm of col]{$R$ measured; $Q$ open};
+\node[font=\scriptsize,text=resultgreen,below=1mm of aa]{local measured};
+\node[font=\scriptsize,text=warningorange,below=1mm of str]{standalone measured};
+\node[font=\scriptsize,text=airbusblue,below=1mm of obs]{direct circuits planned};
+\node[font=\scriptsize,text=resultgreen,below=1mm of val]{working baseline};
+\begin{scope}[on background layer]
+\node[draw=airbusblue,dashed,rounded corners,fit=(prep)(col)(aa)(str)(obs),
+inner xsep=3mm,inner ysep=8mm,label={[font=\scriptsize,text=airbusblue]above:
+central proposal deliverable: one coherent position-aware timestep}] {};
+\end{scope}
+\end{tikzpicture}
+}
+\caption{End-to-end solver architecture and evidence status. Orange blocks are
+prototypes requiring integration; green blocks are executed; blue is planned
+observable extraction to be implemented.}
+\label{fig:architecture}
+\end{figure*}
+
+The algorithm prepares the analytic initial vortex using reversible arithmetic,
+applies collision to all sites in superposition, streams with controlled
+modular shifts, amplifies the valid block, and estimates only requested
+observables. The central technical contribution will be coherent loading of
+the 496 nonzero $Q$ coefficients and composition with reusable $R$ and
+$R\otimes R$ operations, avoiding generic dense synthesis.
+
+\section{Preliminary Feasibility Evidence}
+\subsection{Circuit success and extraction}
+A genuine Qiskit circuit applies the complete \emph{local} 90-dimensional
+dilation with a fresh signal ancilla per application. Conditional fidelity is
+unity to numerical precision, but raw success compounds catastrophically
+(\cref{fig:success}). Exact amplitude amplification peaks after nine iterations
+(19 block calls) at $p_{\rm succ}=0.9966$.
+
+\begin{figure}[t]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-  name=runtime,width=0.47\textwidth,height=0.27\textwidth,
-  xmode=log,ymode=log,xlabel={Reynolds number},ylabel={Runtime (s)},
-  title={Measured classical time-to-solution},grid=both,
-  grid style={gray!20},tick label style={font=\scriptsize},
-  label style={font=\small},title style={font=\small\bfseries},
-  legend style={font=\scriptsize,draw=none,at={(0.03,0.97)},anchor=north west}
-]
-\addplot[airbusblue,very thick,mark=*] coordinates
-  {(10,0.8602) (100,4.5310) (400,51.9919) (1000,509.8260)};
-\addlegendentry{configured points}
-\addplot[warningorange,only marks,mark=diamond*,mark size=3pt]
-  coordinates {(5000,65.5005)};
-\addlegendentry{under-resolved pilot}
-\end{axis}
-\begin{axis}[
-  at={($(runtime.east)+(12mm,0)$)},anchor=west,
-  width=0.47\textwidth,height=0.27\textwidth,
-  xmode=log,xlabel={Reynolds number},ylabel={Relative velocity $L_2$},
-  title={Accuracy at $t=1$},grid=both,
-  grid style={gray!20},tick label style={font=\scriptsize},
-  label style={font=\small},title style={font=\small\bfseries},
-  scaled y ticks=false,yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=5}
-]
-\addplot[resultgreen,very thick,mark=*] coordinates
-  {(10,0.00463495) (100,0.00443167) (400,0.00449691) (1000,0.00452572)};
-\addplot[warningorange,only marks,mark=diamond*,mark size=3pt]
-  coordinates {(5000,0.00453349)};
+width=\columnwidth,height=45mm,
+xlabel={coherent collision steps},ylabel={raw success probability},
+xmin=0.5,xmax=10.5,ymode=log,ymin=1e-24,ymax=1e-1,
+xtick={1,2,5,10},grid=major,
+tick label style={font=\scriptsize},label style={font=\small}]
+\addplot+[very thick,mark=*,color=riskred] coordinates {
+(1,6.320e-3) (2,3.989e-5) (5,1.006e-11) (10,1.011e-22)};
 \end{axis}
 \end{tikzpicture}
-\caption{Directly measured corrected sweep. Runtime values are machine-specific
-and presently have one repetition; final submission points will use warmups,
-at least five repetitions, and confidence intervals.}
-\label{fig:scaling}
-\end{figure*}
+\caption{Measured local-circuit post-selection decay. This is the primary
+amplification and normalization risk.}
+\label{fig:success}
+\end{figure}
 
-\subsection{Collision, circuit, and noise evidence}
-The local block encoding reproduces the 90-dimensional collision with maximum
-amplitude error $6.94\times10^{-17}$, and \,\cref{eq:dilation} is unitary to
-$5.11\times10^{-15}$. A full spatial comparison at
-$(\Rey,N,t)=(100,32,0.1)$ gives Carleman-versus-exact-BGK relative errors
-$1.28\times10^{-5}$ in velocity and $2.21\times10^{-7}$ in populations.
+Raw-$f$ samples retained the state norm. From $10^3$ to $10^6$ shots,
+velocity RMSE fell 0.136 to 0.00342, kinetic-energy absolute error
+$9.33\times10^{-3}$ to $1.19\times10^{-6}$, and $(1,1)$ Fourier-mode error
+0.936 to 0.00655. These tomography-scale results validate the encoding but do
+not establish efficient extraction; the proposal replaces them with direct
+amplitude/phase estimation.
 
-The corrected streaming noise experiment transpiles to the $\{u,\mathrm{CX}\}$
-basis and actually passes a depolarizing noise model to Aer. With 20,000 shots,
-one-qubit error $10^{-3}$, and two-qubit error $10^{-2}$, the noisy-versus-ideal
-Hellinger fidelity is 0.964 and the total variation distance is 0.036.
+\subsection{Structure and routed streaming}
+The flattened $90\times90$ collision matrix is 88.1\% nonzero. Computing the
+lower lift as $RF_2R^T$ and storing $R,Q$ reduces coefficients from 7,138 to
+577 ($12.37\times$), with maximum multiplication error
+$1.44\times10^{-15}$. A reusable five-qubit $R$ dilation compiles to depth 825
+and 423 CX gates, versus depth 107,126 and 87,216 CX for the complete dense
+reference. This supports structured construction, but is not yet a full
+PREPARE/SELECT implementation.
 
-\begin{table}[t]
-\centering
-\caption{Connectivity-aware resource proxy for the complete local dense
-collision dilation on an eight-qubit bidirectional ring.}
-\label{tab:resources}
-\small
-\begin{tabular}{lr}
-\toprule
-Resource & Measured value\\
-\midrule
-Transpiled depth & 107,128\\
-Single-qubit $u$ gates & 51,483\\
-CX gates & 87,216\\
-Raw post-selection probability & 0.01774\\
-Expected raw attempts & 56.4\\
-Amplitude amplification scale & 7.51\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-These counts include routing but exclude arbitrary-rotation synthesis into
-Clifford+$T$, error correction, and magic-state factories. They are a dense
-upper bound, not a favorable resource claim.
-
-\section{Experimental Program}
-The experiments are designed around fixed physical accuracy, not fixed grid
-size. Each configuration records code revision, seeds, precision, dependency
-versions, processor or backend, transpiler settings, raw counts, and wall-clock
-protocol.
-
-\begin{table*}[t]
-\centering
-\caption{Planned experiments and decision criteria.}
-\label{tab:plan}
-\small
-\begin{tabularx}{\textwidth}{p{0.18\textwidth}p{0.27\textwidth}X p{0.21\textwidth}}
-\toprule
-Work package & Sweep & Recorded outputs & Pass criterion\\
-\midrule
-Physics convergence & $\Rey=10,100,400,1000,2000,5000$; $N=32$--2048;
-$\mathrm{Ma}=0.1$--0.0125 & Total/vortex $L_2$, energy, phase, mass,
-momentum, divergence & Grid and Mach convergence at $t=1$\\
-Collision fidelity & Carleman order 1--3; 1--1000 steps; density and velocity
-perturbations & Population and observable drift versus exact BGK & Truncation
-error fits declared budget\\
-Quantum correctness & 1, 2, 5, 10, and 50 coherent timesteps & State and
-observable error, success probability & No classical operation in claimed path\\
-Noise sensitivity & Gate error $10^{-4}$--$10^{-2}$; shots $10^3$--$10^6$ &
-Fidelity, bias, variance, confidence interval & Noise applied after compilation\\
-Resource scaling & $N=8$--2048, $\Rey=10$--5000,
-$\epsilon=10^{-1}$--$10^{-4}$ & Logical/physical qubits, $T$ count/depth,
-block calls, shots, runtime & Complete cost ledger\\
-Classical comparison & BGK plus spectral or high-order finite volume & Runtime,
-peak memory, accuracy & Same physics, observable, and tolerance\\
-\bottomrule
-\end{tabularx}
-\end{table*}
-
-The required final plots are: (i) time-to-solution versus $\Rey$ at fixed
-$\epsilon$, (ii) memory or physical qubits versus $\Rey$, (iii) $L_2$ and
-kinetic-energy error versus $\Rey$, and (iv) a stacked cost decomposition for
-preparation, collision, streaming, amplification, and measurement.
-
-\section{End-to-End Advantage Test}
-A compact state representation does not prove an advantage. For one declared
-observable and error tolerance $\epsilon$, total quantum time is modeled as
-\begin{align}
-T_Q(\epsilon,\Rey)={}&T_{\mathrm{prep}}
-+n_t\left[N_{\mathrm{BE}}C_{\mathrm{AA}}(p)+N_S\right]\nonumber\\
-&\times t_{\mathrm{cycle}}+N_{\mathrm{shots}}T_{\mathrm{meas}}.
-\label{eq:cost}
-\end{align}
-Here $N_{\mathrm{BE}}$ is block-encoding cost,
-$C_{\mathrm{AA}}(p)$ is amplification overhead, $N_S$ is streaming cost, and
-$N_{\mathrm{shots}}$ follows from the observable precision. The logical cycle
-time includes routing, rotation synthesis, code distance, magic-state factory
-throughput, and a declared failure probability.
+All modular shifts were decomposed to native one-qubit/CX gates and routed.
+The constant high-level depth of 29 expands rapidly after decomposition
+(\cref{fig:streaming}); topology must therefore enter every resource claim.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[
-  gate/.style={draw,rounded corners=2pt,minimum width=35mm,minimum height=11mm,
-    align=center,font=\scriptsize},
-  yes/.style={-{Latex[length=2mm]},thick,resultgreen},
-  no/.style={-{Latex[length=2mm]},thick,warningorange}
-]
-\node[gate,draw=airbusblue,fill=softblue] (g1) {G1: physical fidelity\\budget closes?};
-\node[gate,draw=airbusblue,fill=softblue,below=5mm of g1] (g2) {G2: coherent timestep\\without classical re-lift?};
-\node[gate,draw=airbusblue,fill=softblue,below=5mm of g2] (g3) {G3: structured collision\\beats dense upper bound?};
-\node[gate,draw=resultgreen,fill=resultgreen!8,below=5mm of g3] (g4) {G4: $T_Q<T_C$ or $M_Q<M_C$\\at fixed $\epsilon$?};
-\node[gate,draw=warningorange,fill=warningorange!8,right=5mm of g2] (nogo) {Report quantified\\no-go boundary};
-\draw[yes] (g1) -- node[right,font=\tiny] {yes} (g2);
-\draw[yes] (g2) -- node[right,font=\tiny] {yes} (g3);
-\draw[yes] (g3) -- node[right,font=\tiny] {yes} (g4);
-\draw[no] (g1.east) -| (nogo.north);
-\draw[no] (g2.east) -- (nogo.west);
-\draw[no] (g3.east) -| (nogo.south);
+\begin{tikzpicture}
+\begin{axis}[
+width=\columnwidth,height=48mm,
+xmode=log,log basis x=2,ymode=log,
+xlabel={grid width $N$},ylabel={native streaming depth},
+xtick={4,8,16,32,64,128},xticklabels={4,8,16,32,64,128},
+grid=major,legend style={font=\scriptsize,at={(0.03,0.97)},anchor=north west},
+tick label style={font=\scriptsize},label style={font=\small}]
+\addplot+[thick,mark=*,color=resultgreen] coordinates
+{(4,1416)(8,11102)(16,30970)(32,96996)(64,228752)(128,441737)};
+\addlegendentry{all-to-all}
+\addplot+[thick,mark=square*,color=airbusblue] coordinates
+{(4,2615)(8,21814)(16,66248)(32,215165)(64,506706)(128,987743)};
+\addlegendentry{ring}
+\addplot+[thick,mark=triangle*,color=warningorange] coordinates
+{(4,2948)(8,23102)(16,68341)(32,206183)(64,499186)(128,980774)};
+\addlegendentry{line}
+\end{axis}
 \end{tikzpicture}
-\caption{Evidence gates for accepting or rejecting a bounded advantage claim.
-Failure is reported as a quantified no-go result rather than hidden.}
-\label{fig:gates}
+\caption{Measured routed D2Q9 streaming compilation.}
+\label{fig:streaming}
 \end{figure}
 
-The claim is accepted only when total time or memory is lower than both
-classical comparators at the same $(\Rey,t,\epsilon)$ for the same observable.
-Three hardware levels will be reported: ideal logical all-to-all, routed logical
-nearest-neighbor, and fault tolerant with physical qubits and wall time.
+\subsection{Physics and classical benchmark}
+The production notebook runs $t=1$ for every requested Reynolds number and
+Mach value at $N=32$ with five timing repetitions, plus $N=16,32,64$
+convergence tests. Velocity convergence orders are 1.67--1.91; no final
+population is negative. Best velocity $L_2$ error across $\Rey$ is
+0.00368--0.00432 and Fourier-mode error 0.00661--0.00709. Relative pressure
+error remains 0.312--0.314, so pressure fidelity is a specific optimization
+target.
 
-\section{Risks and Mitigations}
-\begin{table*}[t]
+A dealiased Fourier-vorticity RK4 solver provides an independent classical
+comparator. At $N=64,t=1$ it runs in 0.636--0.665 s versus 4.31--4.80 s for
+the Python BGK solver, while attaining $\simeq10^{-10}$ relative velocity
+error rather than $3.3$--$4.6\times10^{-3}$ (\cref{fig:classical}). This is a
+deliberately strong baseline, not a straw man.
+
+\begin{figure}[t]
 \centering
-\caption{Principal technical risks.}
-\label{tab:risks}
-\small
-\begin{tabularx}{\textwidth}{p{0.25\textwidth}p{0.15\textwidth}X}
-\toprule
-Risk & Likelihood / impact & Mitigation\\
-\midrule
-Carleman truncation fails at high $\Rey$ & High / high & Stability map,
-rescaling, adaptive order, and pivot to an end-to-end bounded-advantage
-incompressible LBM formulation\\
-Post-selection dominates & High / high & Optimize normalization, exploit local
-encoding, include amplification, and enforce a stop gate\\
-Dense synthesis remains exponential & High / high & Exploit D2Q9 sparsity,
-symmetry, repeated coefficients, and local collision reuse\\
-Data extraction removes the speedup & High / high & Restrict primary outputs to
-kinetic energy and selected modes; account for every sample\\
-Classical reference is weak & Medium / high & Add pseudo-spectral or high-order
-finite-volume baselines at identical tolerance\\
-Benchmark convention is disputed & Medium / medium & Publish both length scales
-and obtain organizer confirmation\\
-\bottomrule
-\end{tabularx}
-\end{table*}
+\begin{tikzpicture}
+\begin{axis}[
+width=\columnwidth,height=47mm,
+xmode=log,ymode=log,
+xlabel={Reynolds number},ylabel={relative velocity $L_2$ error},
+xtick={10,100,1000,5000},grid=major,
+legend style={font=\scriptsize,at={(0.03,0.04)},anchor=south west},
+tick label style={font=\scriptsize},label style={font=\small}]
+\addplot+[very thick,mark=*,color=resultgreen] coordinates
+{(10,1.021e-10)(100,1.051e-10)(400,1.061e-10)(1000,1.063e-10)(2000,1.063e-10)(5000,1.064e-10)};
+\addlegendentry{spectral RK4}
+\addplot+[very thick,mark=square*,color=riskred] coordinates
+{(10,0.003277)(100,0.004432)(400,0.004540)(1000,0.004553)(2000,0.004556)(5000,0.004563)};
+\addlegendentry{D2Q9 BGK}
+\end{axis}
+\end{tikzpicture}
+\caption{Measured $N=64,t=1$ accuracy against the exact solution.}
+\label{fig:classical}
+\end{figure}
 
-\section{Schedule and Deliverables}
-The proposed sixteen-week program has six gated phases:
-\begin{enumerate}[leftmargin=*,itemsep=1pt]
-\item \textbf{Weeks 1--2: benchmark lock.} Complete convergence study,
-provenance schema, and independent classical comparator.
-\item \textbf{Weeks 3--6: coherent algorithm.} Remove classical re-lifting from
-the claimed path and validate several timesteps.
-\item \textbf{Weeks 7--10: circuit engineering.} Construct the sparse block
-encoding and compile collision plus streaming.
-\item \textbf{Weeks 11--13: scale study.} Execute $\Rey$ and accuracy sweeps and
-produce fixed-error scaling figures.
-\item \textbf{Weeks 14--15: FTQC assessment.} Estimate Clifford+$T$, code
-distance, factories, physical qubits, and wall time.
-\item \textbf{Week 16: submission.} Deliver the paper, source, code, corrected
-datasets, raw results, and independent rerun checklist.
+\section{Advantage Hypothesis and Scaling Test}
+For $D=9N^2$ populations, the quantum state uses
+$O(\log D)$ address qubits, but this is only a memory opportunity if state
+preparation, updates, and extraction preserve it. The complete runtime ledger
+is
+\begin{equation}
+T_Q=T_{\rm prep}+n_t(T_{R/Q}+T_{\rm AA}+T_{\rm stream})+T_{\rm extract}.
+\label{eq:ledger}
+\end{equation}
+The classical ledger includes initialization, solver, communication, and the
+same observable extraction. The proposal tests three linked hypotheses:
+\begin{enumerate}
+\item analytic TGV preparation scales polylogarithmically in $N$, while
+amplitude estimation targets $O(1/\epsilon)$ oracle calls rather than the
+$O(1/\epsilon^2)$ scaling of direct sampling;
+\item factorized $R/Q$ collision and modular streaming avoid dense
+$O(D^2)$ synthesis and retain a sublinear-in-$D$ per-step logical cost;
+\item amplification, timestep count, and error correction do not erase those
+savings at fixed physical error.
+\end{enumerate}
+The hypotheses are rejected if any required oracle hides $O(N^2)$ data loading,
+if coherent error or success normalization grows prohibitively with $n_t$, or
+if the end-to-end ratios fail
+\begin{equation}
+\mathcal A_T=T_Q/T_C<1,\qquad \mathcal A_M=M_Q/M_C<1.
+\end{equation}
+
+The present collision-only fault-tolerant sensitivity study is a lower bound,
+because it omits preparation, global streaming, extraction, and inter-block
+routing. Median quantum/classical runtime ratios across Reynolds numbers are
+shown in \cref{fig:crossover}. Only the optimistic ten-step proxy is below one;
+there is currently no defensible advantage.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=\columnwidth,height=48mm,
+xmode=log,ymode=log,xlabel={coherent timesteps},
+ylabel={$T_Q/T_C$ (collision-only proxy)},
+xtick={10,100,1000},xticklabels={10,100,1000},
+grid=major,legend style={font=\scriptsize,at={(0.03,0.97)},anchor=north west},
+tick label style={font=\scriptsize},label style={font=\small}]
+\addplot+[black,dashed,thick] coordinates {(10,1)(1000,1)};
+\addlegendentry{break-even}
+\addplot+[very thick,mark=*,color=resultgreen] coordinates {(10,0.656)(100,6.56)(1000,65.6)};
+\addlegendentry{optimistic}
+\addplot+[very thick,mark=square*,color=airbusblue] coordinates {(10,13.1)(100,131)(1000,1311)};
+\addlegendentry{base}
+\addplot+[very thick,mark=triangle*,color=riskred] coordinates {(10,104.9)(100,1049)(1000,10489)};
+\addlegendentry{pessimistic}
+\end{axis}
+\end{tikzpicture}
+\caption{Preliminary no-go boundary. A final claim must add every term in
+\cref{eq:ledger} and compare at matched error.}
+\label{fig:crossover}
+\end{figure}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[x=10.7mm,y=5.2mm,font=\scriptsize]
+\foreach \m in {1,...,12}{
+  \draw[gray!35] (\m,0) -- (\m,-5.8);
+  \node[above] at (\m,0) {\m};}
+\node[anchor=e,font=\small] at (0.5,0) {month};
+\foreach \name/\y in {WP1 baselines/-1,WP2 timestep/-2,WP3 observables/-3,WP4 resources/-4,WP5 crossover/-5}{
+  \node[anchor=e,font=\small] at (0.5,\y) {\name};}
+\draw[fill=resultgreen!72,draw=resultgreen,rounded corners] (1,-1.32) rectangle (5,-0.68);
+\draw[fill=airbusblue!68,draw=airbusblue,rounded corners] (2,-2.32) rectangle (8,-1.68);
+\draw[fill=airbuscyan!68,draw=airbuscyan,rounded corners] (4,-3.32) rectangle (9,-2.68);
+\draw[fill=warningorange!72,draw=warningorange,rounded corners] (6,-4.32) rectangle (11,-3.68);
+\draw[fill=navy!72,draw=navy,rounded corners] (9,-5.32) rectangle (12,-4.68);
+\foreach \x/\lab in {3/G1,7/G2,10/G3,12/G4}{
+  \draw[riskred,very thick] (\x,0.2)--(\x,-5.6);
+  \node[below,text=riskred,font=\bfseries\scriptsize] at (\x,-5.6) {\lab};}
+\end{tikzpicture}
+\caption{Twelve-month execution plan. Decision gates: G1 validated global
+timestep; G2 stable multi-step observables; G3 complete compiled ledger; G4
+matched-error advantage or no-go decision.}
+\label{fig:roadmap}
+\end{figure*}
+
+\section{Work Plan, Deliverables, and Resources}
+\subsection{Technical work packages}
+\begin{description}[leftmargin=8mm,labelindent=0mm,style=nextline,itemsep=2pt]
+\item[WP1---Physics and baselines.] Complete $N=32$--2048, $t=1$ sweeps with
+at least five timed repetitions; add pressure, positivity, momentum, phase,
+mode, and order metrics; implement optimized CPU/GPU spectral and high-order
+finite-volume comparators.
+\item[WP2---Integrated quantum timestep.] Build analytic raw-$f$ preparation,
+coherent $Q$ loading, factorized PREPARE/SELECT or QSVT collision, and
+position-aware streaming. Execute one through ten complete steps at small $N$.
+\item[WP3---Success and observables.] Optimize $\alpha$; test fixed-point and
+oblivious amplification across timesteps; implement energy and Fourier
+amplitude/phase estimators with explicit precision scaling.
+\item[WP4---Compilation and reliability.] Sweep topology through $N=2048$;
+report logical/native gates, Clifford+T count, T-depth, ancillas, routing, and
+approximation error. Apply noise after transpilation to the complete small
+circuit and perform a funded QPU pilot.
+\item[WP5---Crossover decision.] Combine every cost under optimistic, base,
+and pessimistic surface-code assumptions and compare with both classical
+solvers at identical $(\Rey,t,N,\epsilon)$.
+\end{description}
+
+\subsection{Six auditable deliverables}
+\begin{enumerate}
+\item Reproducible exact-solution and classical baseline suite with hardware
+metadata, warm-ups, confidence intervals, and peak memory.
+\item End-to-end global circuit for raw-$f$ preparation, collision, streaming,
+amplification, and measurement for 1--10 steps.
+\item Observable package for normalization, energy, pressure proxies, and
+selected Fourier modes with shot/amplitude-estimation scaling.
+\item Factorized collision and streaming compiler with ancilla, topology,
+Clifford+T, T-depth, and approximation-error reports.
+\item Stability/noise atlas over Carleman orders 1--3, $\Rey$, Mach, resolution,
+and 50--1000 coherent steps.
+\item Fixed-accuracy crossover report and plots, including an explicit no-go
+result if the acceptance criteria are not met.
 \end{enumerate}
 
-\section{Expected Contribution}
-The project is designed to produce a scientifically useful result in either
-direction. A successful outcome is a defensible bounded advantage for selected
-aerodynamic observables, supported by a complete resource ledger. A negative
-outcome is a quantified boundary identifying whether truncation, conditioning,
-amplification, synthesis, or readout prevents a crossover. In both cases, the
-corrected Taylor-Green benchmark, nine-population collision model, and
-reproducibility artifacts provide a foundation for subsequent Airbus
-quantum-CFD evaluations.
+Required resources are an optimized multicore/GPU node for the $N=128$--2048
+baseline matrix, a circuit simulator for small integrated instances, a
+compiler/resource estimator with configurable topology and surface-code
+assumptions, and limited QPU credits for a small hardware validation. QPU data
+is demonstrative only; the advantage claim is based on fault-tolerant compiled
+resources and matched classical measurements.
+
+\section{Validation Matrix and Risk Control}
+All comparisons use the same domain, initial condition, $t$, Reynolds number,
+observable, and error tolerance. Five or more repetitions follow one warm-up;
+reports include median, range, 95\% bootstrap interval, peak memory, software
+versions, processor/GPU, compiler seed, and circuit topology.
+
+\begin{table}[!ht]
+\centering
+\caption{Final decision gates.}
+\label{tab:validation}
+\scriptsize
+\begin{tabularx}{\columnwidth}{@{}p{8mm}p{33mm}X@{}}
+\toprule Gate&Pass criterion&If failed\\\midrule
+G1&Global $N=4$, 1--10 step circuit: fidelity $\geq0.99$ and observables within
+declared error budgets&Raise Carleman order or reject the encoding/oracle.\\
+G2&Orders 1--3 remain bounded and physical for 50--1000 steps&Adapt
+normalization/order or delimit the valid regime.\\
+G3&Complete routed FT circuit meets failure target; every ledger term bounded&
+Redesign $Q$/streaming or declare resource no-go.\\
+G4&$\mathcal A_T<1$ or $\mathcal A_M<1$ at matched error, with uncertainty below
+one&Publish crossover boundary or no-go; make no advantage claim.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Principal risks and mitigation.}
+\label{tab:risks}
+\scriptsize
+\begin{tabularx}{\columnwidth}{@{}p{18mm}p{26mm}X@{}}
+\toprule Risk&Evidence&Mitigation\\\midrule
+Success collapse&$p_{10}=1.01\times10^{-22}$ raw&Optimize $\alpha$; fixed-point
+AA; normalize per step; account for every call.\\
+Oracle cost&$Q$ loading remains open&Exploit 35 coefficient magnitudes and
+factorized $R/Q$ structure; compare PREPARE/SELECT and QSVT.\\
+Routing growth&Ring depth 987,743 at $N=128$&Arithmetic shift networks,
+layout co-design, and topology sweep.\\
+Physics bias&Pressure error $\simeq31\%$&Mach/refinement study, higher-order
+lift, and pressure-specific acceptance threshold.\\
+Strong classical baseline&Spectral method already wins&Optimize both baselines;
+claim only a fixed-accuracy measured crossover.\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Reproducibility and Claim Boundary}
+Eleven notebooks execute from clean kernels with no stored errors, and the
+repository test suite reports 11 passing tests. Machine-readable results are
+stored in \texttt{results/deliverables}. Source code, executed notebooks, and
+reproduction instructions are available at
+\url{https://github.com/SyedT1/quantum-aero-solver}. The prepared Open Quantum SDK job was
+not submitted because the account had zero credits; credentials are not stored
+in the repository. Hardware execution remains a WP4 task.
+
+The current evidence validates local mathematical and circuit components, not
+the complete quantum solver. It does not demonstrate quantum advantage. The
+proposal is intentionally falsifiable: success means a working end-to-end
+solver plus a matched-error time or memory ratio below one; otherwise the
+project delivers a documented no-go boundary identifying which cost prevents
+advantage.
 
 \section{Conclusion}
-This proposal advances beyond a streaming-only or toy-collision demonstration.
-It supplies a verified local D2Q9 Carleman collision block, corrected periodic
-datasets, full spatial fidelity checks, an applied-noise experiment, and routed
-resource evidence. The same evidence also shows why advantage cannot yet be
-claimed: dense collision synthesis and low post-selection probability are
-costly, and coherent multi-step lifting remains open. The proposed program turns
-those limitations into explicit experiments and decision gates. Only an
-end-to-end fixed-accuracy crossover for selected observables will be reported as
-quantum advantage.
+This concept directly targets the Airbus benchmark with a structured FTQC
+solver, a working exact-solution validation stack, measured preliminary
+circuits, a state-of-the-art classical comparator, and explicit scaling gates.
+The negative preliminary results strengthen the proposal by locating the
+critical work: coherent $Q$ loading, global composition, stable amplification,
+direct observables, and complete fault-tolerant accounting. The twelve-month
+programme produces either defensible quantum advantage at fixed fidelity or an
+equally auditable no-go result, without substituting qubit-count arguments for
+time-to-solution evidence.
 
+\newpage
+{\fontsize{8}{8.5}\selectfont
 \begin{thebibliography}{99}
-\bibitem{airbus2026}
-Airbus, ``Quantum Solvers: Enhancing Predictive Aerodynamic Modeling
-Capabilities,'' Global Quantum + AI Challenge 2026 Enterprise Challenge
-Statement, 2026.
-
-\bibitem{qian1992}
-Y. H. Qian, D. d'Humi\`eres, and P. Lallemand, ``Lattice BGK Models for
-Navier-Stokes Equation,'' \emph{Europhysics Letters}, vol. 17, no. 6, 1992.
-
-\bibitem{liu2021}
-J.-P. Liu, H. \O. Kolden, H. K. Krovi, N. F. Loureiro, K. Trivisa, and
-A. M. Childs, ``Efficient quantum algorithm for dissipative nonlinear
-differential equations,'' \emph{PNAS}, vol. 118, e2026805118, 2021;
-corrected version, arXiv:2011.03185v4, 2026.
-
-\bibitem{gilyen2019}
-A. Gily\'en, Y. Su, G. H. Low, and N. Wiebe, ``Quantum singular value
-transformation and beyond: exponential improvements for quantum matrix
-arithmetics,'' in \emph{Proc. 51st ACM STOC}, pp. 193--204, 2019.
-
-\bibitem{jennings2025}
-D. Jennings, K. Korzekwa, M. Lostaglio, R. Ashworth, E. Marsili, and
-S. Rolston, ``An end-to-end quantum algorithm for nonlinear fluid dynamics
-with bounded quantum advantage,'' arXiv:2512.03758, 2025.
-
-\bibitem{zamora2026}
-A. D. Bastida Zamora, L. Budinski, V. Lahtinen, and P. Sagaut, ``Quantum
-lattice Boltzmann method for several time steps: A local Carleman linearization
-algorithm,'' arXiv:2511.13072v3, 2026.
-
-\bibitem{childs2017}
-A. M. Childs, R. Kothari, and R. D. Somma, ``Quantum algorithm for systems of
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\bibitem{airbus2026} Airbus, ``Quantum Solvers: Enhancing Predictive
+Aerodynamic Modeling Capabilities,'' Global Quantum + AI Challenge, 2026.
+\bibitem{qian1992} Y. H. Qian, D. d'Humi\`eres, and P. Lallemand,
+``Lattice BGK Models for Navier--Stokes Equation,'' \emph{EPL}, 17(6), 1992.
+\bibitem{liu2021} J.-P. Liu et al., ``Efficient quantum algorithm for
+dissipative nonlinear differential equations,'' \emph{PNAS} 118, 2021;
+arXiv:2011.03185v4, 2026.
+\bibitem{gilyen2019} A. Gily\'en et al., ``Quantum singular value
+transformation and beyond,'' \emph{STOC}, 2019.
+\bibitem{jennings2025} D. Jennings et al., ``An end-to-end quantum algorithm
+for nonlinear fluid dynamics with bounded quantum advantage,''
+arXiv:2512.03758, 2025.
+\bibitem{zamora2026} A. D. Bastida Zamora et al., ``Quantum lattice Boltzmann
+method for several time steps,'' arXiv:2511.13072v3, 2026.
+\bibitem{childs2017} A. M. Childs et al., ``Quantum algorithm for systems of
 linear equations with exponentially improved dependence on precision,''
-\emph{SIAM Journal on Computing}, vol. 46, no. 6, pp. 1920--1950, 2017.
+\emph{SIAM J. Comput.} 46(6), 2017.
 \end{thebibliography}
-
+}
 \end{document}

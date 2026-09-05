@@ -1,0 +1,63 @@
+{
+  "oracle": {
+    "dimension": 90,
+    "nnz": 7138,
+    "density": 0.8812345679012346,
+    "max_row_sparsity": 81,
+    "median_row_sparsity": 81.0,
+    "unique_coefficient_magnitudes": 35,
+    "oracle_matvec_max_error": 8.881784197001252e-16,
+    "factorized_matvec_max_error": 1.4432899320127035e-15,
+    "r_nnz": 81,
+    "q_nnz": 496,
+    "factorized_stored_coefficients": 577,
+    "flat_to_factorized_storage_ratio": 12.370883882149046,
+    "column_index_bits": 7,
+    "row_count_bits": 7
+  },
+  "assumptions": {
+    "coefficient_bits": 16,
+    "toffoli_per_query_formula": "4*factorized_stored_coefficients + 4*coefficient_bits*9",
+    "T_per_Toffoli": 4,
+    "surface_code_data_qubits": "2*logical_qubits*distance^2",
+    "warning": "proxy only; excludes state preparation, amplification, streaming, measurement, and a compiled PREPARE/SELECT circuit"
+  },
+  "scenarios": [
+    {
+      "name": "optimistic",
+      "physical_error": 0.0001,
+      "code_distance": 15,
+      "cycle_us": 0.2,
+      "factory_qubits": 12000,
+      "t_states_per_cycle": 4.0,
+      "logical_qubits_proxy": 45,
+      "T_count_per_block_query_proxy": 11536,
+      "physical_qubits_proxy": 32250,
+      "block_query_time_seconds_proxy": 0.0005768
+    },
+    {
+      "name": "base",
+      "physical_error": 0.001,
+      "code_distance": 25,
+      "cycle_us": 1.0,
+      "factory_qubits": 30000,
+      "t_states_per_cycle": 1.0,
+      "logical_qubits_proxy": 45,
+      "T_count_per_block_query_proxy": 11536,
+      "physical_qubits_proxy": 86250,
+      "block_query_time_seconds_proxy": 0.011536
+    },
+    {
+      "name": "pessimistic",
+      "physical_error": 0.003,
+      "code_distance": 35,
+      "cycle_us": 2.0,
+      "factory_qubits": 60000,
+      "t_states_per_cycle": 0.25,
+      "logical_qubits_proxy": 45,
+      "T_count_per_block_query_proxy": 11536,
+      "physical_qubits_proxy": 170250,
+      "block_query_time_seconds_proxy": 0.092288
+    }
+  ]
+}

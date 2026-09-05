@@ -1,0 +1,8 @@
+{
+  "hardware": "Linux-7.2.3-1-garuda-x86_64-with-glibc2.44",
+  "processor": "",
+  "python": "3.14.7",
+  "gpu_status": "not measured; no project GPU implementation is present",
+  "fv_status": "not measured; independent Fourier-vorticity RK4 is the implemented high-order comparator",
+  "ft_warning": "collision-only lower-bound proxy; absence of global streaming/preparation/extraction makes any favorable ratio insufficient for advantage"
+}

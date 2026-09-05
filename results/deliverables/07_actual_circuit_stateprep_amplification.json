@@ -1,0 +1,143 @@
+{
+  "omega": 1.9990277894635404,
+  "collision_circuits": [
+    {
+      "steps": 1,
+      "qubits": 8,
+      "high_level_depth": 2,
+      "success_probability": 0.006320308894565084,
+      "conditional_fidelity": 1.0000000000000004,
+      "expected_raw_attempts": 158.22011497886015
+    },
+    {
+      "steps": 2,
+      "qubits": 9,
+      "high_level_depth": 3,
+      "success_probability": 3.989455226265664e-05,
+      "conditional_fidelity": 1.0,
+      "expected_raw_attempts": 25066.079032952366
+    },
+    {
+      "steps": 5,
+      "qubits": 12,
+      "high_level_depth": 6,
+      "success_probability": 1.0059222182336874e-11,
+      "conditional_fidelity": 0.999999999999999,
+      "expected_raw_attempts": 99411264794.99715
+    },
+    {
+      "steps": 10,
+      "qubits": 17,
+      "high_level_depth": 11,
+      "success_probability": 1.0105736529896807e-22,
+      "conditional_fidelity": 0.9999999999999992,
+      "expected_raw_attempts": 9.895369793597927e+21
+    }
+  ],
+  "amplitude_amplification": [
+    {
+      "iterations": 0,
+      "success_probability": 0.006320308894565081,
+      "block_calls": 1
+    },
+    {
+      "iterations": 1,
+      "success_probability": 0.055928108310288036,
+      "block_calls": 3
+    },
+    {
+      "iterations": 2,
+      "success_probability": 0.15015882765972938,
+      "block_calls": 5
+    },
+    {
+      "iterations": 3,
+      "success_probability": 0.2795436175887169,
+      "block_calls": 7
+    },
+    {
+      "iterations": 4,
+      "success_probability": 0.43108114378699025,
+      "block_calls": 9
+    },
+    {
+      "iterations": 5,
+      "success_probability": 0.5895440364861686,
+      "block_calls": 11
+    },
+    {
+      "iterations": 6,
+      "success_probability": 0.7390090249147581,
+      "block_calls": 13
+    },
+    {
+      "iterations": 7,
+      "success_probability": 0.8644569999231821,
+      "block_calls": 15
+    },
+    {
+      "iterations": 8,
+      "success_probability": 0.9532822212036084,
+      "block_calls": 17
+    },
+    {
+      "iterations": 9,
+      "success_probability": 0.9965590152075279,
+      "block_calls": 19
+    },
+    {
+      "iterations": 10,
+      "success_probability": 0.9899386786056703,
+      "block_calls": 21
+    },
+    {
+      "iterations": 11,
+      "success_probability": 0.9340864612272889,
+      "block_calls": 23
+    },
+    {
+      "iterations": 12,
+      "success_probability": 0.8346147178978923,
+      "block_calls": 25
+    }
+  ],
+  "raw_f_observable_extraction": [
+    {
+      "shots": 1000,
+      "state_qubits": 8,
+      "normalization": 1.9997570460031568,
+      "velocity_rmse_lattice": 0.1363196978269394,
+      "kinetic_energy_absolute_error": 0.009332032274412578,
+      "mode_11_absolute_error": 0.9360885170918556,
+      "unobserved_cells": 0
+    },
+    {
+      "shots": 10000,
+      "state_qubits": 8,
+      "normalization": 1.9997570460031568,
+      "velocity_rmse_lattice": 0.04171062407785372,
+      "kinetic_energy_absolute_error": 0.0007493093835443534,
+      "mode_11_absolute_error": 0.1982195846322428,
+      "unobserved_cells": 0
+    },
+    {
+      "shots": 100000,
+      "state_qubits": 8,
+      "normalization": 1.9997570460031568,
+      "velocity_rmse_lattice": 0.012622117854822012,
+      "kinetic_energy_absolute_error": 3.639982176417964e-05,
+      "mode_11_absolute_error": 0.047379135520968896,
+      "unobserved_cells": 0
+    },
+    {
+      "shots": 1000000,
+      "state_qubits": 8,
+      "normalization": 1.9997570460031568,
+      "velocity_rmse_lattice": 0.003421086524055858,
+      "kinetic_energy_absolute_error": 1.18630307770639e-06,
+      "mode_11_absolute_error": 0.0065496461632923286,
+      "unobserved_cells": 0
+    }
+  ],
+  "scope_warning": "Actual local Qiskit circuit. Global nontrivial streaming is not composed with the lifted collision."
+}

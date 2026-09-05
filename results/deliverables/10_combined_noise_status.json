@@ -1,0 +1,6 @@
+{
+  "status": "blocked",
+  "reason": "a nontrivial global raw-f lifted collision+streaming circuit does not yet exist; applying noise to disconnected proxies would not answer the experiment",
+  "available_evidence": "07 executes the complete local collision circuit; 10 compiles complete streaming separately",
+  "next_action": "complete Q PREPARE/SELECT and global position-aware lift, then transpile and run Aer noise on that single circuit"
+}

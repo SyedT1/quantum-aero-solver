@@ -3,6 +3,17 @@ import numpy as np
 from quantum_aero.carleman import exact_bgk, order2_collision, validate_block_encoding
 from quantum_aero.classical import LBMConfig, W, run_lbm, tgv_exact
 from quantum_aero.quantum import applied_noise_experiment
+from quantum_aero.deliverables import (
+    coherent_lifted_trajectory,
+    initial_lattice_state,
+    run_pseudospectral_tgv,
+    sparse_collision_oracle,
+)
+from quantum_aero.advanced import (
+    amplitude_amplification_experiment,
+    collision_stability,
+    simulate_local_collision,
+)
 
 
 def test_nonperiodic_pdf_literal_is_rejected():
@@ -55,3 +66,40 @@ def test_noise_is_applied_and_changes_the_distribution():
     )
     assert result["noise_model_applied"] is True
     assert result["total_variation_distance"] > 0.001
+
+
+def test_coherent_lifted_recurrence_runs_without_relift():
+    cfg = LBMConfig(n=4, reynolds=100, t_end=0.05, snapshots=2)
+    f, omega, _, _ = initial_lattice_state(cfg)
+    records = coherent_lifted_trajectory(f, omega, checkpoints=(1, 2))
+    assert [record["step"] for record in records] == [1, 2]
+    assert records[0]["coherent_vs_bgk"] < 1e-12
+    assert records[1]["lift_consistency_defect"] > 0
+
+
+def test_pseudospectral_comparator_matches_exact_tgv():
+    result = run_pseudospectral_tgv(
+        LBMConfig(n=16, reynolds=100, t_end=0.05, snapshots=2)
+    )
+    assert result["relative_l2"] < 1e-6
+
+
+def test_factorized_collision_matches_dense_matrix():
+    result = sparse_collision_oracle(omega=1.2)
+    assert result["factorized_matvec_max_error"] < 1e-12
+    assert result["flat_to_factorized_storage_ratio"] > 10
+
+
+def test_actual_local_collision_circuit_and_amplification():
+    cfg = LBMConfig(n=4, reynolds=100, t_end=0.05, snapshots=2)
+    f, omega, _, _ = initial_lattice_state(cfg)
+    result = simulate_local_collision(f[0, 0], omega, steps=2)
+    assert result["conditional_fidelity"] > 1 - 1e-12
+    amplified = amplitude_amplification_experiment(f[0, 0], omega, max_iterations=12)
+    assert max(row["success_probability"] for row in amplified) > 0.95
+
+
+def test_off_equilibrium_collision_stability_probe():
+    result = collision_stability(omega=1.95, speed=0.1, density_shift=0.02, steps=200)
+    assert result["stable"] is True
+    assert np.isfinite(result["relative_error"])
