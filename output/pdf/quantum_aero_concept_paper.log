@@ -690,31 +690,31 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 (quantum_aero_concept_paper.aux)
 \openout1 = `quantum_aero_concept_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-6.
+7.
  (ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -750,11 +750,11 @@ LaTeX Font Info:    ... okay on input line 46.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 46.
-Package microtype Info: Applying patch `item' on input line 46.
-Package microtype Info: Applying patch `toc' on input line 46.
-Package microtype Info: Applying patch `eqnum' on input line 46.
-Package microtype Info: Applying patch `footnote' on input line 46.
+LaTeX Info: Redefining \microtypecontext on input line 47.
+Package microtype Info: Applying patch `item' on input line 47.
+Package microtype Info: Applying patch `toc' on input line 47.
+Package microtype Info: Applying patch `eqnum' on input line 47.
+Package microtype Info: Applying patch `footnote' on input line 47.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -767,7 +767,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package hyperref Info: Link coloring ON on input line 46.
+Package hyperref Info: Link coloring ON on input line 47.
 (nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (refcount.sty
@@ -777,49 +777,49 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
+LaTeX Info: Redefining \ref on input line 47.
+LaTeX Info: Redefining \pageref on input line 47.
+LaTeX Info: Redefining \nameref on input line 47.
 
 (quantum_aero_concept_paper.out) (quantum_aero_concept_paper.out)
 \@outlinefile=\write4
 \openout4 = `quantum_aero_concept_paper.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-8.
+9.
  (ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-8.
+9.
 
 (omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-48.
+49.
  (omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-48.
+49.
  (omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 48.
+(Font)              <12> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 48.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 48.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
 
  (umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 
  (umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -828,7 +828,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-8.
+9.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -837,202 +837,215 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 55.
+(Font)              <9> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 55.
+(Font)              <5> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 55.
+(Font)              <10> on input line 56.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 56.
 
-Underfull \hbox (badness 2512) in paragraph at lines 84--87
+Underfull \hbox (badness 2512) in paragraph at lines 85--88
 [][]\T1/lmr/bx/n/10 Proposed[]\T1/lmr/m/n/10 : scal-able an-a-lytic state prepa
 -ra-tion,
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 90--94
+Underfull \hbox (badness 1122) in paragraph at lines 91--95
 \T1/lmr/m/n/10 not ev-i-dence of a pro-duc-tion high-Mach ca-pa-bil-ity.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 []|\T1/lmr/m/n/9 Requested
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 []|\T1/lmr/m/n/9 Working
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 []|\T1/lmr/m/n/9 Integrated raw-$\OML/lmm/m/it/9 f$ \T1/lmr/m/n/9 PREPARE--coll
 ision--
  []
 
 
-Underfull \hbox (badness 3713) in paragraph at lines 110--110
+Underfull \hbox (badness 3713) in paragraph at lines 111--111
 \T1/lmr/m/n/9 streaming--measurement cir-cuit, ver-i-fied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--113
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 []\T1/lmr/bx/n/14.4 Benchmark and Nu-mer-i-cal
  []
 
-[1
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 202--202
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
 []\T1/lmr/bx/n/14.4 Preliminary Fea-si-bil-ity Ev-i-
  []
 
-Package pgfplots info on input line 218: Using 'lua backend=false' for axis: ym
+Package pgfplots info on input line 219: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
-Package pgfplots info on input line 257: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 258: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
-Package pgfplots info on input line 257: Using 'lua backend=false' for axis: ym
+Package pgfplots info on input line 258: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
-Package pgfplots info on input line 297: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 298: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
-Package pgfplots info on input line 297: Using 'lua backend=false' for axis: ym
+Package pgfplots info on input line 298: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--310
+Underfull \hbox (badness 10000) in paragraph at lines 311--311
 []\T1/lmr/bx/n/14.4 Advantage Hy-poth-e-sis and
  []
 
 [2]
-Package pgfplots info on input line 352: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 353: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
-Package pgfplots info on input line 352: Using 'lua backend=false' for axis: ym
+Package pgfplots info on input line 353: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
-
-Underfull \vbox (badness 1297) has occurred while \output is active []
-
  [3]
-Underfull \hbox (badness 2591) in paragraph at lines 420--422
+Underfull \hbox (badness 2591) in paragraph at lines 421--423
 \T1/lmr/m/n/10 sure prox-ies, and se-lected Fourier modes with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--424
+Underfull \hbox (badness 10000) in paragraph at lines 423--425
 \T1/lmr/m/n/10 an-cilla, topol-ogy, Clif-ford+T, T-depth, and
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 437--437
+Underfull \hbox (badness 2608) in paragraph at lines 438--438
 []\T1/lmr/bx/n/14.4 Validation Ma-trix and Risk
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 458--458
+Underfull \hbox (badness 1845) in paragraph at lines 459--459
 \T1/lmr/m/n/7 cir-cuit: fi-delity $\OMS/lmsy/m/n/7 ^^U \OT1/lmr/m/n/7 0\OML/lmm
 /m/it/7 :\OT1/lmr/m/n/7 99$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 []|\T1/lmr/m/n/7 Orders 1--3 re-main
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 \T1/lmr/m/n/7 bounded and phys-i-cal
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 458--458
+Underfull \hbox (badness 1189) in paragraph at lines 459--459
 []|\T1/lmr/m/n/7 Complete routed FT cir-
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 458--458
+Underfull \hbox (badness 1648) in paragraph at lines 459--459
 []|\T1/lmr/m/n/7 Publish crossover bound-ary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Success col-
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 478--478
+Underfull \hbox (badness 5064) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Optimize $\OML/lmm/m/it/7 ^^K$\T1/lmr/m/n/7 ; fixed-point
  []
 
 
-Underfull \hbox (badness 5592) in paragraph at lines 478--478
+Underfull \hbox (badness 5592) in paragraph at lines 479--479
 []|$\OML/lmm/m/it/7 Q$ \T1/lmr/m/n/7 load-ing re-mains
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Exploit 35 co-ef-fi-cient
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 478--478
+Underfull \hbox (badness 2277) in paragraph at lines 479--479
 \OML/lmm/m/it/7 R=Q$ \T1/lmr/m/n/7 struc-ture; com-pare
  []
 
 
-Underfull \hbox (badness 4765) in paragraph at lines 478--478
+Underfull \hbox (badness 4765) in paragraph at lines 479--479
 \T1/lmr/m/n/7 PRE-PARE/SELECT and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Routing
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 478--478
+Underfull \hbox (badness 1383) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Ring depth 987,743
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Mach/refinement study,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 \T1/lmr/m/n/7 higher-order lift, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 \T1/lmr/m/n/7 pressure-specific ac-cep-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Strong clas-si-
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 478--478
+Underfull \hbox (badness 1281) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Spectral method al-
  []
 
 
-Underfull \hbox (badness 3826) in paragraph at lines 478--478
+Underfull \hbox (badness 3826) in paragraph at lines 479--479
 []|\T1/lmr/m/n/7 Optimize both base-lines;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
 []\T1/lmr/bx/n/14.4 Reproducibility and Claim
  []
 
 
-Underfull \vbox (badness 3199) has occurred while \output is active []
+Underfull \hbox (badness 1648) in paragraph at lines 483--490
+\T1/lmr/m/n/10 Eleven note-books ex-e-cute from clean ker-nels with
+ []
 
- [4]
-[5] (quantum_aero_concept_paper.aux)
+
+Underfull \hbox (badness 4792) in paragraph at lines 483--490
+\T1/lmr/m/n/10 no stored er-rors, and the repos-i-tory test suite
+ []
+
+
+Underfull \hbox (badness 5050) in paragraph at lines 483--490
+\T1/lmr/m/n/10 re-ports 11 pass-ing tests. Machine-readable re-
+ []
+
+[4] [5] (quantum_aero_concept_paper.aux)
 Package rerunfilecheck Info: File `quantum_aero_concept_paper.out' has not chan
 ged.
 (rerunfilecheck)             Checksum: E9794A4CC65F95C0067E49A923A3612E;2874.
  )
-Output written on quantum_aero_concept_paper.xdv (5 pages, 129916 bytes).
+Output written on quantum_aero_concept_paper.xdv (5 pages, 130832 bytes).
